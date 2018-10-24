@@ -21,11 +21,11 @@ namespace SchoolErp.Models
         }
     
         public int Staff_ID { get; set; }
+        public int Cnic { get; set; }
         public string Name { get; set; }
+        public int PhoneNo { get; set; }
         public int Desig_ID { get; set; }
         public int Sal_ID { get; set; }
-        public int Cnic { get; set; }
-        public int PhoneNo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CST> CSTs { get; set; }

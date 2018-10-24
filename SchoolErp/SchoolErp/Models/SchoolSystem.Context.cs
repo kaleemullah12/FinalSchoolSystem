@@ -13,10 +13,10 @@ namespace SchoolErp.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SchoolSystemsEntities : DbContext
+    public partial class SchoolSystemsEntities2 : DbContext
     {
-        public SchoolSystemsEntities()
-            : base("name=SchoolSystemsEntities")
+        public SchoolSystemsEntities2()
+            : base("name=SchoolSystemsEntities2")
         {
         }
     

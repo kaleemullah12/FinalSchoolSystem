@@ -3,213 +3,102 @@
     ViewBag.Title = "AddStudent";
     Layout = "~/Views/Shared/Dashboard.cshtml";
 }
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>ADD STUDENT</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    @*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">*@
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    
-    @*<link href="~/Content/style.css" type="text/css" rel="stylesheet" media="all">*@
-
-</head>
-<body>
-
-
-    <div class="container">
-        <div style="background-image:url(../../images/kaleem.jpg) ;margin-top:-20px; width:1300px;height:600px" id="1">
-            <div class="row">
-                <div class="col-md-6" id="size">
-                
-                    <div class="container">
-                        <!-- banner-text -->
-                        <div id="bg"></div>
-
-                        @using (Html.BeginForm("Login", "Home", FormMethod.Post))
-                        {
-                            @*<form action="" method="post" style="margin-top:25px">*@
-                            <h2 id="heading">Add Student Data</h2>
-                            <br />
-                            <div class="col-md-12" >
-                                <label class="col-md-2" style="color:white">Student Name</label>
-                                <input type="text" name="Name" id="StudentName" placeholder="Student Name"  class="email col-md-4 ">
-
-                                <label for="" class="col-md-2" style="color:white">Roll No</label>
-                                <input type="text" name="RollNo" id="RollNo" placeholder="Roll No"  class="col-md-4 ">
-                            </div>
-                            
-                            <div class="col-md-12" style="margin-top:65px">
-                                <label class="col-md-2" style="color:white">Gender</label>
-                                <p class="col-md-1" style="color:white">Male</p>
-                                <input type="radio" name="Gender" value="true" checked id="Gender"  class="col-md-1 ">
-                                <p class="col-md-1" style="color:white">Female</p>
-                                <input type="radio" name="Gender" value="false" id="Gender"  class="col-md-1 ">
-
-                                <label class="col-md-2" style="color:white">Phone No</label>
-                                <input type="text" name="PhoneNo" id="phoneno" placeholder="Phone no" class="col-md-4">
-                            </div>
-                            <div class="col-md-12" style="margin-top:65px">
-                                <label class="col-md-2" style="color:white">Set Class</label>
-                                <select id="class" class="col-md-4">
-                                    <option>Select........</option>
-                                    <option>10-th</option>
-                                    <option>9-th</option>
-                                    <option>8-th</option>
-                                    <option>7-th</option>
-                                    <option>6-th</option>
-                                    <option>5-th</option>
-                                    <option>4-th</option>
-                                </select>
-                                <label class="col-md-2" style="color:white">Set Section</label>
-                                <select id="class" class="col-md-4">
-                                    <option>Select........</option>
-                                    <option>A</option>
-                                    <option>B</option>
-                                    <option>C</option>
-                                    <option>D</option>
-                                </select>
-                           </div>
-
-                        <div class="col-md-12" style="margin-top:65px">
-                            <label class="col-md-2" style="color:white">DOB</label>
-                            
-                            <input type="date" name="DOB" id="DOB" class="col-md-4 ">
-                            
-                            <label class="col-md-2" style="color:white">Fee Status</label>
-                            <input type="checkbox" name="feestatus" id="feestatus" placeholder="Fee Status" class="col-md-4">
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="col-md-12" style="margin-top:10px">
-
-                            <label class="col-md-2" style="color:white">Password</label>
-
-                            <input type="password" name="Pass" id="Pass" class="col-md-4 ">
-
-                            <label class="col-md-2" style="color:white">Father Name</label>
-                            <select id="class" class="col-md-4">
-                                <option>Select........</option>
-                            </select>
-                           <div class="clearfix"></div>
-                        </div>
-                            <button type="submit" style="margin-left:40%;margin-top:20px;">login to your account</button>
-                        }
-                        @*</form>*@
-
+ 
+<h1>Student</h1>
+<br />
+<div class="row clearfix">
+    <div class="col-md-6" style="margin-left:30%;">
+        <div class="card">
+            <div class="header">
+                <h1>AddStudent</h1>
+            </div>
+            <div class="body">
+                <form id="basic-form" method="post" novalidate>
+                    <div class="form-group">
+                        <label>Student Name</label>
+                        <input type="text" name="Stud_Name" id="st_name" class="form-control" required>
                     </div>
-                </div>
+                        <div class="form-group">
+                        <label for="father">Father Name</label>
+                        <br />
+                        <select id="father" name="Father_ID" class="form-control" data-parsley-required data-parsley-trigger-after-failure="change" data-parsley-errors-container="">
+                            @foreach(var item in ViewBag.par)
+                            { 
+                            <option value="@item.Parent_ID">@item.p_Name</option>
+                            }     
+                        </select>
+                        <p id="error-multiselect"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Roll No#</label>
+                        <input type="number" name="Roll_no" id="Rollno" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>DOB</label>
+                        <input type="date" name="DOB" id="DOB" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone No#</label>
+                        <input type="number" name="Phone_no" id="Phone_no" class="form-control" required>
+                    </div>
+                    @*<div class="form-group">
+                        <label>Image</label>
+                        <input type="file" name="Image" id="Image" class="form-control" required>
+                    </div>*@
+                    <div class="form-group">
+                        <label>Address</label>
+                        <textarea class="form-control" id="addresses" name="Address" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Fee Status#</label>
+                        <input type="checkbox" value="true" name="Fee_Status" id="Fee_Status" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <br />
+                        <label class="fancy-radio">
+                            <input type="radio" name="Gender"id="gender" value="male" required data-parsley-errors-container="#error-radio">
+                            <span><i></i>Male</span>
+                        </label>
+                        <label class="fancy-radio">
+                            <input type="radio" name="Gender" id="gender" value="female">
+                            <span><i></i>Female</span>
+                        </label>
+                        <p id="error-radio"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="class">Class</label>
+                        <br />
+                        <select id="class_ID" name="Class_ID" class="form-control"  data-parsley-required data-parsley-trigger-after-failure="change" data-parsley-errors-container="">
+                          @foreach(var item in ViewBag.clas) { 
+                              <option value="@item.Class_ID">@item.Class_Name</option>
+                          }
+                                 </select>
+                        <p id="error-multiselect"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="Section">Section</label>
+                        <br />
+                        <select id="Section_ID" name="Sec_ID" class="form-control" data-parsley-required data-parsley-trigger-after-failure="change" data-parsley-errors-container="">
+                            @foreach(var item in ViewBag.sec) {
+
+                            <option value="@item.Sec_ID">@item.Section_Name</option>
+
+                            }
+                              </select>
+                        <p id="error-multiselect"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" name="password" id="password" class="form-control" required>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary" onclick="Addstudent()">Save</button>
+                </form>
             </div>
         </div>
     </div>
-
-
-
-
-
-
-    <script src="js/index.js"></script>
-</body>
-</html>
-
-<style>
-
-    #heading {
-        font-size: 55px;
-        font-family: Agency FB;
-        font-weight: 500;
-        /*/*border-bottom-style: ridge;*/
-        margin-left: 220px;
-        color: white;
-    }
-
-form select{
-    border: 1px solid;
-    border-bottom-color: rgba(255,255,255,.5);
-
-border-right-color: rgba(60,60,60,.35);
-
-border-top-color: rgba(60,60,60,.35);
-
-border-left-color: rgba(80,80,80,.45);
-
-background-color: rgba(0,0,0,.2);
-
-background-repeat: no-repeat;
-
-padding: 8px 24px 8px 10px;
-
-font: bold .875em/1.25em "Open Sans Condensed", sans-serif;
-
-letter-spacing: .075em;
-
-color: #fff;
-
-text-shadow: 0 1px 0 rgba(0,0,0,.1);
-
-margin-bottom: 19px;
-}
-
-form {
-  position: relative;
-  width: 900px;
-  margin-top: 35px;
-  background: rgba(130,130,130,.3);
-
-  border: 1px solid;
-  border-top-color: rgba(255,255,255,.4);
-  border-left-color: rgba(255,255,255,.4);
-  border-bottom-color: rgba(60,60,60,.4);
-  border-right-color: rgba(60,60,60,.4);
-  margin-left:100px;
-}
     
-form input, form button {
-  width: 212px;
-  border: 1px solid;
-  border-bottom-color: rgba(255,255,255,.5);
-  border-right-color: rgba(60,60,60,.35);
-  border-top-color: rgba(60,60,60,.35);
-  border-left-color: rgba(80,80,80,.45);
-  background-color: rgba(0,0,0,.2);
-  background-repeat: no-repeat;
-  padding: 8px 24px 8px 10px;
-  font: bold .875em/1.25em "Open Sans Condensed", sans-serif;
-  letter-spacing: .075em;
-  color: #fff;
-  text-shadow: 0 1px 0 rgba(0,0,0,.1);
-  margin-bottom: 22px;
-}
-
-form input:focus { background-color: rgba(0,0,0,.4); }
-
-form input.email {
-  background-position: 220px 10px;
-}
-
-form input.pass {
-  background-position: 223px 8px
-}
-
-form button[type=submit] {
-  width: 248px;
-  //margin-bottom: 0;
-  color: #3f898a;
-  letter-spacing: .05em;
-  text-shadow: 0 1px 0 #133d3e;
-  text-transform: uppercase;
-  background: #225556;
-  border-top-color: #9fb5b5;
-  border-left-color: #608586;
-  border-bottom-color: #1b4849;
-  border-right-color: #1e4d4e;
-  cursor: pointer;
-}
-
-
-
-
-</style>
+</div>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/jquery/Student.js"></script>

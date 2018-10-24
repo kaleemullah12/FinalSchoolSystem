@@ -4,26 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6ee0d276bbd849df903702c8b51a9070" Name="Diagram1">
-        <EntityTypeShape EntityType="SchoolSystemsModel.Admin" Width="1.5" PointX="10.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolSystemsModel.Attendence" Width="1.5" PointX="10.5" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolSystemsModel.Cl_Sec" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolSystemsModel.Class" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolSystemsModel.CST" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolSystemsModel.Designation" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolSystemsModel.Event" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolSystemsModel.Exam" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolSystemsModel.Exam_Schedule" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolSystemsModel.Parent" Width="1.5" PointX="6" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolSystemsModel.Result" Width="1.5" PointX="10.5" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolSystemsModel.Salary" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolSystemsModel.Schedule" Width="1.5" PointX="11" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolSystemsModel.Section" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+      <Diagram DiagramId="b9439e6252344be383326963dee202c9" Name="Diagram1">
+        <EntityTypeShape EntityType="SchoolSystemsModel.Admin" Width="1.5" PointX="10.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSystemsModel.Attendence" Width="1.5" PointX="10.5" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSystemsModel.Cl_Sec" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSystemsModel.Class" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSystemsModel.CST" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSystemsModel.Designation" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSystemsModel.Event" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSystemsModel.Exam" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSystemsModel.Exam_Schedule" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSystemsModel.Parent" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSystemsModel.Result" Width="1.5" PointX="10.625" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSystemsModel.Salary" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSystemsModel.Schedule" Width="1.5" PointX="11" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSystemsModel.Section" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SchoolSystemsModel.Staff" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolSystemsModel.Student" Width="1.5" PointX="8.25" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolSystemsModel.Subject" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolSystemsModel.sysdiagram" Width="1.5" PointX="12.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolSystemsModel.Weather" Width="1.5" PointX="8.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSystemsModel.Student" Width="1.5" PointX="8.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSystemsModel.Subject" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSystemsModel.sysdiagram" Width="1.5" PointX="12.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSystemsModel.Weather" Width="1.5" PointX="8.75" PointY="2.375" IsExpanded="true" />
         <AssociationConnector Association="SchoolSystemsModel.FK_Attendence_Student" ManuallyRouted="false" />
         <AssociationConnector Association="SchoolSystemsModel.FK_Cl_Sec_Class" ManuallyRouted="false" />
         <AssociationConnector Association="SchoolSystemsModel.FK_Class_Subject" ManuallyRouted="false" />
@@ -42,7 +42,6 @@
         <AssociationConnector Association="SchoolSystemsModel.FK_Staff_Salary" ManuallyRouted="false" />
         <AssociationConnector Association="SchoolSystemsModel.FK_Schedule_Weather" ManuallyRouted="false" />
         <AssociationConnector Association="SchoolSystemsModel.FK_Student_Section" ManuallyRouted="false" />
-        <AssociationConnector Association="SchoolSystemsModel.FK_Section_Class" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

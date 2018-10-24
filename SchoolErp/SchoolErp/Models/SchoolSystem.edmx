@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SchoolSystemsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SchoolSystemsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Admin">
           <Key>
             <PropertyRef Name="Admin_ID" />
@@ -127,7 +127,6 @@
           </Key>
           <Property Name="Sec_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Section_Name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Class_ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
@@ -150,11 +149,11 @@
           <Property Name="Gender" Type="bit" Nullable="false" />
           <Property Name="Phone_no" Type="int" Nullable="false" />
           <Property Name="Class_ID" Type="int" Nullable="false" />
-          <Property Name="Section_ID" Type="int" Nullable="false" />
-          <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sec_ID" Type="int" Nullable="false" />
+          <Property Name="Address" Type="varchar(max)" Nullable="false" />
           <Property Name="DOB" Type="date" Nullable="false" />
-          <Property Name="Image" Type="image" Nullable="false" />
-          <Property Name="Fee_Status" Type="bit" />
+          <Property Name="Image" Type="image" />
+          <Property Name="Fee_Status" Type="bit" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Father_ID" Type="int" />
         </EntityType>
@@ -338,18 +337,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Section_Class">
-          <End Role="Class" Type="Self.Class" Multiplicity="1" />
-          <End Role="Section" Type="Self.Section" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Class">
-              <PropertyRef Name="Class_ID" />
-            </Principal>
-            <Dependent Role="Section">
-              <PropertyRef Name="Class_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Staff_Designation">
           <End Role="Designation" Type="Self.Designation" Multiplicity="1" />
           <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
@@ -406,7 +393,7 @@
               <PropertyRef Name="Sec_ID" />
             </Principal>
             <Dependent Role="Student">
-              <PropertyRef Name="Section_ID" />
+              <PropertyRef Name="Sec_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -482,10 +469,6 @@
             <End Role="Weather" EntitySet="Weather" />
             <End Role="Schedule" EntitySet="Schedule" />
           </AssociationSet>
-          <AssociationSet Name="FK_Section_Class" Association="Self.FK_Section_Class">
-            <End Role="Class" EntitySet="Class" />
-            <End Role="Section" EntitySet="Section" />
-          </AssociationSet>
           <AssociationSet Name="FK_Staff_Designation" Association="Self.FK_Staff_Designation">
             <End Role="Designation" EntitySet="Designation" />
             <End Role="Staff" EntitySet="Staff" />
@@ -507,7 +490,8 @@
             <End Role="Student" EntitySet="Student" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SchoolSystemsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -550,7 +534,6 @@
           <NavigationProperty Name="CSTs" Relationship="Self.FK_CST_Class" FromRole="Class" ToRole="CST" />
           <NavigationProperty Name="Exams" Relationship="Self.FK_Exam_Class" FromRole="Class" ToRole="Exam" />
           <NavigationProperty Name="Students" Relationship="Self.FK_Student_Class" FromRole="Class" ToRole="Student" />
-          <NavigationProperty Name="Sections" Relationship="SchoolSystemsModel.FK_Section_Class" FromRole="Class" ToRole="Section" />
         </EntityType>
         <EntityType Name="CST">
           <Key>
@@ -657,22 +640,20 @@
           <Property Name="Section_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Exam_Schedule" Relationship="Self.FK_Exam_Schedule_Section" FromRole="Section" ToRole="Exam_Schedule" />
           <NavigationProperty Name="Students" Relationship="Self.FK_Student_Section" FromRole="Section" ToRole="Student" />
-          <Property Name="Class_ID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Class" Relationship="SchoolSystemsModel.FK_Section_Class" FromRole="Section" ToRole="Class" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
             <PropertyRef Name="Staff_ID" />
           </Key>
           <Property Name="Staff_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cnic" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="PhoneNo" Type="Int32" Nullable="false" />
           <Property Name="Desig_ID" Type="Int32" Nullable="false" />
           <Property Name="Sal_ID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CSTs" Relationship="Self.FK_CST_Staff" FromRole="Staff" ToRole="CST" />
           <NavigationProperty Name="Designation" Relationship="Self.FK_Staff_Designation" FromRole="Staff" ToRole="Designation" />
           <NavigationProperty Name="Salary" Relationship="Self.FK_Staff_Salary" FromRole="Staff" ToRole="Salary" />
-          <Property Name="Cnic" Type="Int32" Nullable="false" />
-          <Property Name="PhoneNo" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -684,11 +665,11 @@
           <Property Name="Gender" Type="Boolean" Nullable="false" />
           <Property Name="Phone_no" Type="Int32" Nullable="false" />
           <Property Name="Class_ID" Type="Int32" Nullable="false" />
-          <Property Name="Section_ID" Type="Int32" Nullable="false" />
-          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sec_ID" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-          <Property Name="Fee_Status" Type="Boolean" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Fee_Status" Type="Boolean" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Father_ID" Type="Int32" />
           <NavigationProperty Name="Attendences" Relationship="Self.FK_Attendence_Student" FromRole="Student" ToRole="Attendence" />
@@ -938,11 +919,11 @@
               <PropertyRef Name="Sec_ID" />
             </Principal>
             <Dependent Role="Student">
-              <PropertyRef Name="Section_ID" />
+              <PropertyRef Name="Sec_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SchoolSystemsEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SchoolSystemsEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admins" EntityType="Self.Admin" />
           <EntitySet Name="Attendences" EntityType="Self.Attendence" />
           <EntitySet Name="Cl_Sec" EntityType="Self.Cl_Sec" />
@@ -1034,29 +1015,13 @@
             <End Role="Section" EntitySet="Sections" />
             <End Role="Student" EntitySet="Students" />
           </AssociationSet>
-          <AssociationSet Name="FK_Section_Class" Association="SchoolSystemsModel.FK_Section_Class">
-            <End Role="Class" EntitySet="Classes" />
-            <End Role="Section" EntitySet="Sections" />
-          </AssociationSet>
         </EntityContainer>
-        <Association Name="FK_Section_Class">
-          <End Type="SchoolSystemsModel.Class" Role="Class" Multiplicity="1" />
-          <End Type="SchoolSystemsModel.Section" Role="Section" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Class">
-              <PropertyRef Name="Class_ID" />
-            </Principal>
-            <Dependent Role="Section">
-              <PropertyRef Name="Class_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SchoolSystemsModelStoreContainer" CdmEntityContainer="SchoolSystemsEntities">
+        <EntityContainerMapping StorageEntityContainer="SchoolSystemsModelStoreContainer" CdmEntityContainer="SchoolSystemsEntities2">
           <EntitySetMapping Name="Admins">
             <EntityTypeMapping TypeName="SchoolSystemsModel.Admin">
               <MappingFragment StoreEntitySet="Admin">
@@ -1189,7 +1154,6 @@
           <EntitySetMapping Name="Sections">
             <EntityTypeMapping TypeName="SchoolSystemsModel.Section">
               <MappingFragment StoreEntitySet="Section">
-                <ScalarProperty Name="Class_ID" ColumnName="Class_ID" />
                 <ScalarProperty Name="Sec_ID" ColumnName="Sec_ID" />
                 <ScalarProperty Name="Section_Name" ColumnName="Section_Name" />
               </MappingFragment>
@@ -1198,10 +1162,10 @@
           <EntitySetMapping Name="Staffs">
             <EntityTypeMapping TypeName="SchoolSystemsModel.Staff">
               <MappingFragment StoreEntitySet="Staff">
-                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
-                <ScalarProperty Name="Cnic" ColumnName="Cnic" />
                 <ScalarProperty Name="Staff_ID" ColumnName="Staff_ID" />
+                <ScalarProperty Name="Cnic" ColumnName="Cnic" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
                 <ScalarProperty Name="Desig_ID" ColumnName="Desig_ID" />
                 <ScalarProperty Name="Sal_ID" ColumnName="Sal_ID" />
               </MappingFragment>
@@ -1216,7 +1180,7 @@
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="Phone_no" ColumnName="Phone_no" />
                 <ScalarProperty Name="Class_ID" ColumnName="Class_ID" />
-                <ScalarProperty Name="Section_ID" ColumnName="Section_ID" />
+                <ScalarProperty Name="Sec_ID" ColumnName="Sec_ID" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="DOB" ColumnName="DOB" />
                 <ScalarProperty Name="Image" ColumnName="Image" />

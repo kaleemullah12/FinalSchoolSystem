@@ -161,83 +161,85 @@
     <Compile Include="Controllers\ClassController.cs" />
     <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Services\StudentServicesController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
+    <Compile Include="Controllers\StudentServices.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Admin.cs">
-      <DependentUpon>SchoolSystem.tt</DependentUpon>
+      <DependentUpon>schoolsystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Attendence.cs">
-      <DependentUpon>SchoolSystem.tt</DependentUpon>
+      <DependentUpon>schoolsystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Class.cs">
-      <DependentUpon>SchoolSystem.tt</DependentUpon>
+      <DependentUpon>schoolsystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Cl_Sec.cs">
-      <DependentUpon>SchoolSystem.tt</DependentUpon>
+      <DependentUpon>schoolsystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CST.cs">
-      <DependentUpon>SchoolSystem.tt</DependentUpon>
+      <DependentUpon>schoolsystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Designation.cs">
-      <DependentUpon>SchoolSystem.tt</DependentUpon>
+      <DependentUpon>schoolsystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Event.cs">
-      <DependentUpon>SchoolSystem.tt</DependentUpon>
+      <DependentUpon>schoolsystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Exam.cs">
-      <DependentUpon>SchoolSystem.tt</DependentUpon>
+      <DependentUpon>schoolsystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Exam_Schedule.cs">
-      <DependentUpon>SchoolSystem.tt</DependentUpon>
+      <DependentUpon>schoolsystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Parent.cs">
-      <DependentUpon>SchoolSystem.tt</DependentUpon>
+      <DependentUpon>schoolsystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Result.cs">
-      <DependentUpon>SchoolSystem.tt</DependentUpon>
+      <DependentUpon>schoolsystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Salary.cs">
-      <DependentUpon>SchoolSystem.tt</DependentUpon>
+      <DependentUpon>schoolsystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Schedule.cs">
-      <DependentUpon>SchoolSystem.tt</DependentUpon>
+      <DependentUpon>schoolsystem.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SchoolSystem.Context.cs">
+    <Compile Include="Models\schoolsystem.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SchoolSystem.Context.tt</DependentUpon>
+      <DependentUpon>schoolsystem.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SchoolSystem.cs">
+    <Compile Include="Models\schoolsystem.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SchoolSystem.tt</DependentUpon>
+      <DependentUpon>schoolsystem.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SchoolSystem.Designer.cs">
+    <Compile Include="Models\schoolsystem.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SchoolSystem.edmx</DependentUpon>
+      <DependentUpon>schoolsystem.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Section.cs">
-      <DependentUpon>SchoolSystem.tt</DependentUpon>
+      <DependentUpon>schoolsystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Staff.cs">
-      <DependentUpon>SchoolSystem.tt</DependentUpon>
+      <DependentUpon>schoolsystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Student.cs">
-      <DependentUpon>SchoolSystem.tt</DependentUpon>
+      <DependentUpon>schoolsystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Subject.cs">
-      <DependentUpon>SchoolSystem.tt</DependentUpon>
+      <DependentUpon>schoolsystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>SchoolSystem.tt</DependentUpon>
+      <DependentUpon>schoolsystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Weather.cs">
-      <DependentUpon>SchoolSystem.tt</DependentUpon>
+      <DependentUpon>schoolsystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -291,15 +293,16 @@
     <Content Include="images\bg1.jpg" />
     <Content Include="images\kaleem.jpg" />
     <Content Include="images\lok.jpg" />
-    <Content Include="Models\SchoolSystem.Context.tt">
+    <Content Include="jquery\Student.js" />
+    <Content Include="Models\schoolsystem.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SchoolSystem.edmx</DependentUpon>
-      <LastGenOutput>SchoolSystem.Context.cs</LastGenOutput>
+      <DependentUpon>schoolsystem.edmx</DependentUpon>
+      <LastGenOutput>schoolsystem.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\SchoolSystem.tt">
+    <Content Include="Models\schoolsystem.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SchoolSystem.edmx</DependentUpon>
-      <LastGenOutput>SchoolSystem.cs</LastGenOutput>
+      <DependentUpon>schoolsystem.edmx</DependentUpon>
+      <LastGenOutput>schoolsystem.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
@@ -308,12 +311,12 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\SchoolSystem.edmx">
+    <EntityDeploy Include="Models\schoolsystem.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SchoolSystem.Designer.cs</LastGenOutput>
+      <LastGenOutput>schoolsystem.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\SchoolSystem.edmx.diagram">
-      <DependentUpon>SchoolSystem.edmx</DependentUpon>
+    <Content Include="Models\schoolsystem.edmx.diagram">
+      <DependentUpon>schoolsystem.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\easing.js" />
@@ -350,7 +353,6 @@
     <Content Include="Views\Home\menu.cshtml" />
     <Content Include="Views\Shared\Dashboard.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
-    <Content Include="Views\Students\AddStudent.cshtml" />
     <Content Include="Views\Students\AddParents.cshtml" />
     <Content Include="Views\Students\AddAttendence.cshtml" />
     <Content Include="Views\Staff\Staff.cshtml" />
@@ -362,9 +364,11 @@
     <Content Include="Views\Subject\SubjectDetails.cshtml" />
     <Content Include="Views\Exam\SchoolSchedule.cshtml" />
     <Content Include="Views\Exam\ExamSchedule.cshtml" />
+    <Content Include="Views\Students\AddStudent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\StudentServices\" />
     <Folder Include="webfonts\" />
   </ItemGroup>
   <ItemGroup>

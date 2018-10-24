@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="SchoolSystemsModelStoreContainer" CdmEntityContainer="SchoolSystemsEntities2">
+  <EntityContainerMapping StorageEntityContainer="SchoolSystemsModelStoreContainer" CdmEntityContainer="SchoolSystemsEntities1">
     <EntitySetMapping Name="Admins">
       <EntityTypeMapping TypeName="SchoolSystemsModel.Admin">
         <MappingFragment StoreEntitySet="Admin">
@@ -153,13 +153,13 @@
     <EntitySetMapping Name="Students">
       <EntityTypeMapping TypeName="SchoolSystemsModel.Student">
         <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="Sec_ID" ColumnName="Sec_ID" />
           <ScalarProperty Name="Stud_ID" ColumnName="Stud_ID" />
           <ScalarProperty Name="Stud_Name" ColumnName="Stud_Name" />
           <ScalarProperty Name="Roll_No" ColumnName="Roll_No" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="Phone_no" ColumnName="Phone_no" />
           <ScalarProperty Name="Class_ID" ColumnName="Class_ID" />
-          <ScalarProperty Name="Sec_ID" ColumnName="Sec_ID" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="DOB" ColumnName="DOB" />
           <ScalarProperty Name="Image" ColumnName="Image" />

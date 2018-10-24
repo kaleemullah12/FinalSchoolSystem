@@ -27,11 +27,11 @@ namespace SchoolErp.Models
         public bool Gender { get; set; }
         public int Phone_no { get; set; }
         public int Class_ID { get; set; }
-        public int Section_ID { get; set; }
+        public int Sec_ID { get; set; }
         public string Address { get; set; }
         public System.DateTime DOB { get; set; }
         public byte[] Image { get; set; }
-        public Nullable<bool> Fee_Status { get; set; }
+        public bool Fee_Status { get; set; }
         public string Password { get; set; }
         public Nullable<int> Father_ID { get; set; }
     

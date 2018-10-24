@@ -23,12 +23,10 @@ namespace SchoolErp.Models
     
         public int Sec_ID { get; set; }
         public string Section_Name { get; set; }
-        public int Class_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Exam_Schedule> Exam_Schedule { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Student> Students { get; set; }
-        public virtual Class Class { get; set; }
     }
 }

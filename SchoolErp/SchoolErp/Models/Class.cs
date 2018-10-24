@@ -21,7 +21,6 @@ namespace SchoolErp.Models
             this.CSTs = new HashSet<CST>();
             this.Exams = new HashSet<Exam>();
             this.Students = new HashSet<Student>();
-            this.Sections = new HashSet<Section>();
         }
     
         public int Class_ID { get; set; }
@@ -38,7 +37,5 @@ namespace SchoolErp.Models
         public virtual ICollection<Exam> Exams { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Student> Students { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Section> Sections { get; set; }
     }
 }
