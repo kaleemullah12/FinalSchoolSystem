@@ -4,101 +4,114 @@
     Layout = "~/Views/Shared/Dashboard.cshtml";
 }
  
-<h1>Student</h1>
+
+<script src="~/jquery/Student.js"></script>
+<script src="~/asset/Common.js"></script>
+
+
+
 <br />
 <div class="row clearfix">
-    <div class="col-md-6" style="margin-left:30%;">
+    <div class="col-md-12" style="">
         <div class="card">
             <div class="header">
-                <h1>AddStudent</h1>
+                <h5>AddStudent</h5>
             </div>
             <div class="body">
                 <form id="basic-form" method="post" novalidate>
-                    <div class="form-group">
-                        <label>Student Name</label>
-                        <input type="text" name="Stud_Name" id="st_name" class="form-control" required>
-                    </div>
-                        <div class="form-group">
-                        <label for="father">Father Name</label>
-                        <br />
-                        <select id="father" name="Father_ID" class="form-control" data-parsley-required data-parsley-trigger-after-failure="change" data-parsley-errors-container="">
-                            @foreach(var item in ViewBag.par)
-                            { 
-                            <option value="@item.Parent_ID">@item.p_Name</option>
-                            }     
-                        </select>
-                        <p id="error-multiselect"></p>
-                    </div>
-                    <div class="form-group">
-                        <label>Roll No#</label>
-                        <input type="number" name="Roll_no" id="Rollno" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>DOB</label>
-                        <input type="date" name="DOB" id="DOB" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone No#</label>
-                        <input type="number" name="Phone_no" id="Phone_no" class="form-control" required>
-                    </div>
-                    @*<div class="form-group">
-                        <label>Image</label>
-                        <input type="file" name="Image" id="Image" class="form-control" required>
-                    </div>*@
-                    <div class="form-group">
-                        <label>Address</label>
-                        <textarea class="form-control" id="addresses" name="Address" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Fee Status#</label>
-                        <input type="checkbox" value="true" name="Fee_Status" id="Fee_Status" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Gender</label>
-                        <br />
-                        <label class="fancy-radio">
-                            <input type="radio" name="Gender"id="gender" value="male" required data-parsley-errors-container="#error-radio">
-                            <span><i></i>Male</span>
-                        </label>
-                        <label class="fancy-radio">
-                            <input type="radio" name="Gender" id="gender" value="female">
-                            <span><i></i>Female</span>
-                        </label>
-                        <p id="error-radio"></p>
-                    </div>
-                    <div class="form-group">
-                        <label for="class">Class</label>
-                        <br />
-                        <select id="class_ID" name="Class_ID" class="form-control"  data-parsley-required data-parsley-trigger-after-failure="change" data-parsley-errors-container="">
-                          @foreach(var item in ViewBag.clas) { 
-                              <option value="@item.Class_ID">@item.Class_Name</option>
-                          }
-                                 </select>
-                        <p id="error-multiselect"></p>
-                    </div>
-                    <div class="form-group">
-                        <label for="Section">Section</label>
-                        <br />
-                        <select id="Section_ID" name="Sec_ID" class="form-control" data-parsley-required data-parsley-trigger-after-failure="change" data-parsley-errors-container="">
-                            @foreach(var item in ViewBag.sec) {
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Student Name</label>
+                                <input type="text" name="Stud_Name" id="st_name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="father">Father Name</label>
+                                <br />
+                                <select id="father" name="Father_ID" class="form-control" data-parsley-required data-parsley-trigger-after-failure="change" data-parsley-errors-container="">
+                                    <option value="">Select..........</option>
+                                    @foreach (var item in ViewBag.par)
+                                    {
+                                        
+                                        <option value="@item.Parent_ID">@item.p_Name</option>
+                                    }
+                                </select>
+                                <p id="error-multiselect"></p>
+                            </div>
+                            <div class="form-group">
+                                <label>Roll No#</label>
+                                <input type="number" name="Roll_no" id="Rollno" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>DOB</label>
+                                <input type="date" name="DOB" id="DOB" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone No#</label>
+                                <input type="number" name="Phone_no" id="Phone_no" class="form-control" required>
+                            </div>
+                     
+                            
+                            <div class="form-group">
+                                <label>Gender</label>
+                                <br />
+                                <label class="fancy-radio">
+                                    <input type="radio" name="Gender" id="gender" checked value="male" required data-parsley-errors-container="#error-radio">
+                                    <span><i></i>Male</span>
+                                </label>
+                                <label class="fancy-radio">
+                                    <input type="radio" name="Gender" id="gender" value="female">
+                                    <span><i></i>Female</span>
+                                </label>
+                                <p id="error-radio"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="class">Class</label>
+                                <br />
+                                <select id="class_ID" name="Class_ID" class="form-control" data-parsley-required data-parsley-trigger-after-failure="change" data-parsley-errors-container="">
+                                    <option value="">Select..........</option>
+                                     @foreach (var item in ViewBag.clas)
+                                    {
+                                        
+                                        <option value="@item.Class_ID">@item.Class_Name</option>
+                                    }
+                                </select>
+                                <p id="error-multiselect"></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="Section">Section</label>
+                                <br />
+                                <select id="Section_ID" name="Sec_ID" class="form-control" data-parsley-required data-parsley-trigger-after-failure="change" data-parsley-errors-container="">
+                                    <option value="">Select..........</option>
+                                     @foreach (var item in ViewBag.sec)
+                                    {
+                                        <option value="@item.Sec_ID">@item.Section_Name</option>
 
-                            <option value="@item.Sec_ID">@item.Section_Name</option>
-
-                            }
-                              </select>
-                        <p id="error-multiselect"></p>
+                                    }
+                                </select>
+                                <p id="error-multiselect"></p>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" name="password" id="password" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Address</label>
+                                <textarea class="form-control" cols="5" rows="6" id="addresses" name="Address" required></textarea>
+                            </div>
+                            <br>
+                            
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" name="password" id="password" class="form-control" required>
-                    </div>
-                    <br>
-                    <button type="submit" class="btn btn-primary" onclick="Addstudent()">Save</button>
-                </form>
+                    
+                    <button type="button"  class="btn  btn-primary btn-block col-md-6" onclick="Addstudent()">Save</button>
+</form>
             </div>
         </div>
     </div>
     
 </div>
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/jquery/Student.js"></script>
+
+

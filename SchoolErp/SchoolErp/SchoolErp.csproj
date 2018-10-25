@@ -161,10 +161,9 @@
     <Compile Include="Controllers\ClassController.cs" />
     <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Services\StudentServicesController.cs" />
+    <Compile Include="Controllers\ParentsController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
-    <Compile Include="Controllers\StudentServices.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -242,18 +241,17 @@
       <DependentUpon>schoolsystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\StudentServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="asset\animate.min.css" />
     <Content Include="asset\bootstrap-progressbar-3.3.4.min.css" />
     <Content Include="asset\bootstrap.min.css" />
-    <Content Include="asset\chartist-plugin-tooltip.css" />
-    <Content Include="asset\chartist.bundle.js" />
-    <Content Include="asset\chartist.min.css" />
     <Content Include="asset\color_skins.css" />
+    <Content Include="asset\Common.js" />
     <Content Include="asset\css\prism.css" />
     <Content Include="asset\css\style.css" />
-    <Content Include="asset\flotscripts.bundle.js" />
+    <Content Include="asset\datepicker.js" />
     <Content Include="asset\font-awesome.min.css" />
     <Content Include="asset\image\1.png" />
     <Content Include="asset\image\2.png" />
@@ -262,7 +260,8 @@
     <Content Include="asset\image\logo-light-text.png" />
     <Content Include="asset\image\logo-text.png" />
     <Content Include="asset\index.js" />
-    <Content Include="asset\jquery.flot.selection.js" />
+    <Content Include="Content\jqx.base.css" />
+    <Content Include="Content\jqx.grid.custom.css" />
     <Content Include="asset\js\bootstrap.min.js" />
     <Content Include="asset\js\custom.js" />
     <Content Include="asset\js\jquery.min.js" />
@@ -270,16 +269,19 @@
     <Content Include="asset\js\popper.min.js" />
     <Content Include="asset\js\prism.js" />
     <Content Include="asset\js\sidebarmenu.js" />
-    <Content Include="asset\knob.bundle.js" />
     <Content Include="asset\libscripts.bundle.js" />
     <Content Include="asset\main.css" />
     <Content Include="asset\mainscripts.bundle.js" />
+    <Content Include="asset\tagsinput.min.js" />
+    <Content Include="asset\tokenfield.min.js" />
     <Content Include="asset\vendorscripts.bundle.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fontawesome-all.min.css" />
     <Content Include="Content\owl.carousel.css" />
     <Content Include="Content\owl.theme.css" />
+    <Content Include="Content\Pnotify\pnotify.custom.min.css" />
+    <Content Include="Content\Pnotify\pnotify.custom.min.js" />
     <Content Include="Content\style.css" />
     <Content Include="Content\style2.css" />
     <Content Include="favicon.ico" />
@@ -365,10 +367,10 @@
     <Content Include="Views\Exam\SchoolSchedule.cshtml" />
     <Content Include="Views\Exam\ExamSchedule.cshtml" />
     <Content Include="Views\Students\AddStudent.cshtml" />
+    <Content Include="Views\Parents\AddParent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\StudentServices\" />
     <Folder Include="webfonts\" />
   </ItemGroup>
   <ItemGroup>

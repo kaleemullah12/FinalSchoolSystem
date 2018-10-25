@@ -1,10 +1,10 @@
 ﻿using SchoolErp.Models;
+using SchoolErp.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SchoolErp.Controllers.Services;
 
 namespace SchoolErp.Controllers
 {
@@ -26,10 +26,8 @@ namespace SchoolErp.Controllers
         }
         [HttpPost]
         public JsonResult AddStudent(Student rec)
-
-
         {
-            StudentServicesController services = new StudentServicesController();
+            StudentServices services = new StudentServices();
             services.AddStudent(rec);
             ViewBag.sec = db.Sections.ToList();
             ViewBag.par = db.Parents.ToList();

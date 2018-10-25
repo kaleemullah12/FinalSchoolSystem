@@ -1,19 +1,75 @@
-﻿$document.ready(function () {
-  
-});
+﻿
+
+
+
+function clearform() {
+     $('#st_name').val('');
+     $('#father').val('');
+     $('#father').trigger('change');
+    $('#Rollno').val('');
+     $('#DOB').val('');
+    $('#addresses').val('');
+   $('#gender').val('');
+   $('#class_ID').val('');
+   $('#class_ID').trigger('change');
+   $('#Section_ID').val('');
+   $('#Section_ID').trigger('change');
+    $('#password').val('');
+
+    $('#Phone_no').val('');
+
+}
+
 function Addstudent() {
+   // debugger;
+    //preventDefault();
     var st_name = $('#st_name').val();
-    var father = $('#father').val();
+    var father = $('#father option:selected').val();
     var Rollno = $('#Rollno').val();
     var DOB = $('#DOB').val();
-    var Phone_no = $('#Phone_no').val();
-    var Image = $('#Image').val();
     var addresses = $('#addresses').val();
-    var Fee_Status = $('#Fee_Status').val();
     var gender = $('#gender').val();
-    var class_ID = $('#class_ID').val();
-    var Section_ID = $('#Section_ID').val();
+    var class_ID = $('#class_ID option:selected').val();
+    var Section_ID = $('#Section_ID option:selected').val();
     var password = $('#password').val();
+    var phone = $('#Phone_no').val();
+    
+    if (st_name=="") {
+        ShowError("Please Enter Student Name");
+        return;
+    }
+    if (father == "") {
+        ShowError("Please Enter Father Name");
+        return;
+    }
+    if (Rollno == "") {
+        ShowError("Please Enter Roll No");
+        return;
+    }
+    if (DOB == "" ) {
+        ShowError("Please Enter DOB");
+        return;
+    }
+    if (addresses == "") {
+        ShowError("Please Enter Address");
+        return;
+    }
+    if (class_ID == "") {
+        ShowError("Please Enter Class Name");
+        return;
+    }
+    if (Section_ID == "") {
+        ShowError("Please Enter Section Name");
+        return;
+    }
+    if (password == "") {
+        ShowError("Please Enter Student Password");
+        return;
+    }
+    if (phone == "") {
+        ShowError("Please Enter Phone No#");
+        return;
+    }
     $.ajax({
         url: "/Students/AddStudent",
         type: "Post",
@@ -23,10 +79,8 @@ function Addstudent() {
             Roll_No: Rollno,
             Father_ID: father,
             DOB: DOB,
-            Phone_no: Phone_no,
-            Image: Image,
+            Phone_no:phone ,
             Address: addresses,
-            Fee_Status: Fee_Status,
             Password: password,
             Gender: gender,
             Class_ID: class_ID,
@@ -37,11 +91,12 @@ function Addstudent() {
         datatype: "json",
         success: function (data) {
             if(data.msg=="save"){
-                alert("Save SuccessFully")
+                ShowSuccess('Save SuccessFully');
+                clearform();
             }
         },
         error: function (error) {
-            alert("Error in saving");
+            ShowError('Error in saving');
         },
         
     });
