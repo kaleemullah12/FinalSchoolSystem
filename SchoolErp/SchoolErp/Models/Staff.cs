@@ -18,18 +18,29 @@ namespace SchoolErp.Models
         public Staff()
         {
             this.CSTs = new HashSet<CST>();
+            this.Sections = new HashSet<Section>();
+            this.Staff_Attendence = new HashSet<Staff_Attendence>();
+            this.Student_Enrolment = new HashSet<Student_Enrolment>();
         }
     
-        public int Staff_ID { get; set; }
-        public int Cnic { get; set; }
+        public int Staff_Id { get; set; }
         public string Name { get; set; }
-        public int PhoneNo { get; set; }
-        public int Desig_ID { get; set; }
-        public int Sal_ID { get; set; }
+        public string Cell_Number { get; set; }
+        public string Address { get; set; }
+        public string CNIC { get; set; }
+        public string Qualification { get; set; }
+        public string Detail { get; set; }
+        public int Designation_Id { get; set; }
+        public int Salary { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CST> CSTs { get; set; }
         public virtual Designation Designation { get; set; }
-        public virtual Salary Salary { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Section> Sections { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Staff_Attendence> Staff_Attendence { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Student_Enrolment> Student_Enrolment { get; set; }
     }
 }

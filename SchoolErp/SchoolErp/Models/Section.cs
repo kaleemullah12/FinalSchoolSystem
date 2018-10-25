@@ -17,16 +17,26 @@ namespace SchoolErp.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Section()
         {
+            this.CSTs = new HashSet<CST>();
             this.Exam_Schedule = new HashSet<Exam_Schedule>();
-            this.Students = new HashSet<Student>();
+            this.Results = new HashSet<Result>();
+            this.Student_Enrolment = new HashSet<Student_Enrolment>();
         }
     
-        public int Sec_ID { get; set; }
-        public string Section_Name { get; set; }
+        public int Section_Id { get; set; }
+        public string Name { get; set; }
+        public int Class_Id { get; set; }
+        public int Staff_Id { get; set; }
     
+        public virtual Class Class { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CST> CSTs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Exam_Schedule> Exam_Schedule { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Student> Students { get; set; }
+        public virtual ICollection<Result> Results { get; set; }
+        public virtual Staff Staff { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Student_Enrolment> Student_Enrolment { get; set; }
     }
 }

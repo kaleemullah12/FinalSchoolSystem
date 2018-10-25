@@ -169,76 +169,67 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Admin.cs">
-      <DependentUpon>schoolsystem.tt</DependentUpon>
+      <DependentUpon>SchoolSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Attendence.cs">
-      <DependentUpon>schoolsystem.tt</DependentUpon>
+      <DependentUpon>SchoolSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Class.cs">
-      <DependentUpon>schoolsystem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Cl_Sec.cs">
-      <DependentUpon>schoolsystem.tt</DependentUpon>
+      <DependentUpon>SchoolSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CST.cs">
-      <DependentUpon>schoolsystem.tt</DependentUpon>
+      <DependentUpon>SchoolSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Designation.cs">
-      <DependentUpon>schoolsystem.tt</DependentUpon>
+      <DependentUpon>SchoolSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Event.cs">
-      <DependentUpon>schoolsystem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Exam.cs">
-      <DependentUpon>schoolsystem.tt</DependentUpon>
+      <DependentUpon>SchoolSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Exam_Schedule.cs">
-      <DependentUpon>schoolsystem.tt</DependentUpon>
+      <DependentUpon>SchoolSystem.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Parent.cs">
-      <DependentUpon>schoolsystem.tt</DependentUpon>
+    <Compile Include="Models\Parent_Record.cs">
+      <DependentUpon>SchoolSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Result.cs">
-      <DependentUpon>schoolsystem.tt</DependentUpon>
+      <DependentUpon>SchoolSystem.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Salary.cs">
-      <DependentUpon>schoolsystem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Schedule.cs">
-      <DependentUpon>schoolsystem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\schoolsystem.Context.cs">
+    <Compile Include="Models\SchoolSystem.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>schoolsystem.Context.tt</DependentUpon>
+      <DependentUpon>SchoolSystem.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\schoolsystem.cs">
+    <Compile Include="Models\SchoolSystem.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>schoolsystem.tt</DependentUpon>
+      <DependentUpon>SchoolSystem.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\schoolsystem.Designer.cs">
+    <Compile Include="Models\SchoolSystem.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>schoolsystem.edmx</DependentUpon>
+      <DependentUpon>SchoolSystem.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Section.cs">
-      <DependentUpon>schoolsystem.tt</DependentUpon>
+      <DependentUpon>SchoolSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Staff.cs">
-      <DependentUpon>schoolsystem.tt</DependentUpon>
+      <DependentUpon>SchoolSystem.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Student.cs">
-      <DependentUpon>schoolsystem.tt</DependentUpon>
+    <Compile Include="Models\Staff_Attendence.cs">
+      <DependentUpon>SchoolSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Student_Enrolment.cs">
+      <DependentUpon>SchoolSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Student_Record.cs">
+      <DependentUpon>SchoolSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Subject.cs">
-      <DependentUpon>schoolsystem.tt</DependentUpon>
+      <DependentUpon>SchoolSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>schoolsystem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Weather.cs">
-      <DependentUpon>schoolsystem.tt</DependentUpon>
+      <DependentUpon>SchoolSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\StudentServices.cs" />
@@ -296,15 +287,15 @@
     <Content Include="images\kaleem.jpg" />
     <Content Include="images\lok.jpg" />
     <Content Include="jquery\Student.js" />
-    <Content Include="Models\schoolsystem.Context.tt">
+    <Content Include="Models\SchoolSystem.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>schoolsystem.edmx</DependentUpon>
-      <LastGenOutput>schoolsystem.Context.cs</LastGenOutput>
+      <DependentUpon>SchoolSystem.edmx</DependentUpon>
+      <LastGenOutput>SchoolSystem.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\schoolsystem.tt">
+    <Content Include="Models\SchoolSystem.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>schoolsystem.edmx</DependentUpon>
-      <LastGenOutput>schoolsystem.cs</LastGenOutput>
+      <DependentUpon>SchoolSystem.edmx</DependentUpon>
+      <LastGenOutput>SchoolSystem.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
@@ -313,12 +304,12 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\schoolsystem.edmx">
+    <EntityDeploy Include="Models\SchoolSystem.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>schoolsystem.Designer.cs</LastGenOutput>
+      <LastGenOutput>SchoolSystem.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\schoolsystem.edmx.diagram">
-      <DependentUpon>schoolsystem.edmx</DependentUpon>
+    <Content Include="Models\SchoolSystem.edmx.diagram">
+      <DependentUpon>SchoolSystem.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\easing.js" />

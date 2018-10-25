@@ -20,9 +20,8 @@ namespace SchoolErp.Models
             this.Staffs = new HashSet<Staff>();
         }
     
-        public int Desig_ID { get; set; }
-        public string Desig_Name { get; set; }
-        public string Detail { get; set; }
+        public int Des_Id { get; set; }
+        public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Staff> Staffs { get; set; }

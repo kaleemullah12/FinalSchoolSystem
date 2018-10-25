@@ -14,20 +14,16 @@ namespace SchoolErp.Models
     
     public partial class Exam_Schedule
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Exam_Schedule()
-        {
-            this.Exams = new HashSet<Exam>();
-        }
+        public int Exam_Id { get; set; }
+        public string Name { get; set; }
+        public int Class_Id { get; set; }
+        public int Section_Id { get; set; }
+        public int Subject_Id { get; set; }
+        public System.DateTime Date { get; set; }
+        public System.TimeSpan Start_Time { get; set; }
+        public System.TimeSpan End_Time { get; set; }
     
-        public int Exam_Sched_ID { get; set; }
-        public int Sub_ID { get; set; }
-        public System.DateTime Start_Date { get; set; }
-        public System.DateTime End_Date { get; set; }
-        public int Sec_ID { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Exam> Exams { get; set; }
+        public virtual Class Class { get; set; }
         public virtual Section Section { get; set; }
         public virtual Subject Subject { get; set; }
     }

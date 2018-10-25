@@ -14,10 +14,9 @@ namespace SchoolErp.Models
     
     public partial class Event
     {
-        public int Eve_ID { get; set; }
+        public int Event_Id { get; set; }
         public string Name { get; set; }
-        public System.DateTime Start_Time { get; set; }
-        public System.DateTime End_Time { get; set; }
+        public System.DateTime Date { get; set; }
         public string Detail { get; set; }
     }
 }

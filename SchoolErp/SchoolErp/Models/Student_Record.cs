@@ -12,35 +12,32 @@ namespace SchoolErp.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Student
+    public partial class Student_Record
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Student()
+        public Student_Record()
         {
             this.Attendences = new HashSet<Attendence>();
-            this.Results = new HashSet<Result>();
+            this.Parent_Record = new HashSet<Parent_Record>();
+            this.Student_Enrolment = new HashSet<Student_Enrolment>();
         }
     
-        public int Stud_ID { get; set; }
-        public string Stud_Name { get; set; }
-        public int Roll_No { get; set; }
-        public bool Gender { get; set; }
-        public int Phone_no { get; set; }
-        public int Class_ID { get; set; }
-        public int Sec_ID { get; set; }
+        public int Stud_Id { get; set; }
+        public string Name { get; set; }
+        public string Father_Name { get; set; }
+        public string DOB { get; set; }
+        public string Roll_Number { get; set; }
         public string Address { get; set; }
-        public System.DateTime DOB { get; set; }
-        public byte[] Image { get; set; }
-        public bool Fee_Status { get; set; }
+        public string Gender { get; set; }
+        public System.DateTime Admission_Date { get; set; }
         public string Password { get; set; }
-        public Nullable<int> Father_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Attendence> Attendences { get; set; }
-        public virtual Class Class { get; set; }
-        public virtual Parent Parent { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Result> Results { get; set; }
-        public virtual Section Section { get; set; }
+        public virtual ICollection<Parent_Record> Parent_Record { get; set; }
+        public virtual Result Result { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Student_Enrolment> Student_Enrolment { get; set; }
     }
 }

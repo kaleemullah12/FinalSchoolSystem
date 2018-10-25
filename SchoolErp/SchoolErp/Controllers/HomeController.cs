@@ -20,8 +20,8 @@ namespace SchoolErp.Controllers
         [HttpPost]
         public ActionResult Login(Admin data)
         {
-            SchoolSystemsEntities2 db = new SchoolSystemsEntities2();
-            var rec = db.Admins.Where(x => x.Name == data.Name && x.Password == data.Password).SingleOrDefault();
+            InvictusSchoolEntities db = new InvictusSchoolEntities();
+            var rec = db.Admins.Where(x => x.User_Name == data.User_Name && x.Password == data.Password).SingleOrDefault();
             Session["admin"] = rec;
             return RedirectToAction("Dashboard");
         }

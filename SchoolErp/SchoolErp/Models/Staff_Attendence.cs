@@ -12,12 +12,13 @@ namespace SchoolErp.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Cl_Sec
+    public partial class Staff_Attendence
     {
-        public int CS_ID { get; set; }
-        public int Class_ID { get; set; }
-        public Nullable<int> Sec_ID { get; set; }
+        public int S_Attendence_Id { get; set; }
+        public int Staff_Id { get; set; }
+        public System.DateTime Date { get; set; }
+        public string Status { get; set; }
     
-        public virtual Class Class { get; set; }
+        public virtual Staff Staff { get; set; }
     }
 }

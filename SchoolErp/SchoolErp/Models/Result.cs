@@ -14,12 +14,17 @@ namespace SchoolErp.Models
     
     public partial class Result
     {
-        public int Res_ID { get; set; }
-        public int Stud_ID { get; set; }
-        public int Sub_ID { get; set; }
-        public int Number { get; set; }
+        public int Result_Id { get; set; }
+        public int Stud_Id { get; set; }
+        public int Class_Id { get; set; }
+        public int Section_Id { get; set; }
+        public int Subject_Id { get; set; }
+        public int Obtained_Marks { get; set; }
+        public int Total_Marks { get; set; }
     
-        public virtual Student Student { get; set; }
+        public virtual Class Class { get; set; }
+        public virtual Section Section { get; set; }
+        public virtual Student_Record Student_Record { get; set; }
         public virtual Subject Subject { get; set; }
     }
 }

@@ -12,18 +12,18 @@ namespace SchoolErp.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Salary
+    public partial class Parent_Record
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Salary()
-        {
-            this.Staffs = new HashSet<Staff>();
-        }
+        public int P_Id { get; set; }
+        public string Name { get; set; }
+        public string CNIC { get; set; }
+        public string DOB { get; set; }
+        public string Address { get; set; }
+        public string Cell_Number { get; set; }
+        public string Gender { get; set; }
+        public int Stud_Roll_Number { get; set; }
+        public string Password { get; set; }
     
-        public int Sal_ID { get; set; }
-        public int Salary1 { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Staff> Staffs { get; set; }
+        public virtual Student_Record Student_Record { get; set; }
     }
 }

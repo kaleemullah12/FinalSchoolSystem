@@ -1,163 +1,160 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="SchoolSystemsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="InvictusSchoolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Admin">
     <Key>
-      <PropertyRef Name="Admin_ID" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Admin_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Attendence">
     <Key>
-      <PropertyRef Name="Atten_ID" />
+      <PropertyRef Name="Attendence_Id" />
     </Key>
-    <Property Name="Atten_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Stud_ID" Type="int" Nullable="false" />
-    <Property Name="Present" Type="bit" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Cl_Sec">
-    <Key>
-      <PropertyRef Name="CS_ID" />
-    </Key>
-    <Property Name="CS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Class_ID" Type="int" Nullable="false" />
-    <Property Name="Sec_ID" Type="int" />
+    <Property Name="Attendence_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Stud_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Class">
     <Key>
-      <PropertyRef Name="Class_ID" />
+      <PropertyRef Name="Class_Id" />
     </Key>
-    <Property Name="Class_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Class_Name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Fees" Type="nchar" MaxLength="10" />
-    <Property Name="Sub_ID" Type="int" Nullable="false" />
+    <Property Name="Class_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fees" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="CST">
     <Key>
-      <PropertyRef Name="CST_ID" />
+      <PropertyRef Name="CST_Id" />
     </Key>
-    <Property Name="CST_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Sub_ID" Type="int" Nullable="false" />
-    <Property Name="Staff_ID" Type="int" Nullable="false" />
-    <Property Name="Class_ID" Type="int" Nullable="false" />
+    <Property Name="CST_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Subject_Id" Type="int" Nullable="false" />
+    <Property Name="Section_Id" Type="int" Nullable="false" />
+    <Property Name="Staff_Id" Type="int" Nullable="false" />
+    <Property Name="Class_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Designation">
     <Key>
-      <PropertyRef Name="Desig_ID" />
+      <PropertyRef Name="Des_Id" />
     </Key>
-    <Property Name="Desig_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Desig_Name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Detail" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Des_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Event">
     <Key>
-      <PropertyRef Name="Eve_ID" />
+      <PropertyRef Name="Event_Id" />
     </Key>
-    <Property Name="Eve_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Event_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Start_Time" Type="datetime" Nullable="false" />
-    <Property Name="End_Time" Type="datetime" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
     <Property Name="Detail" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <EntityType Name="Exam">
+  <EntityType Name="Exam Schedule">
     <Key>
-      <PropertyRef Name="Exam_ID" />
+      <PropertyRef Name="Exam_Id" />
     </Key>
-    <Property Name="Exam_ID" Type="int" Nullable="false" />
-    <Property Name="Exam_Name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Class_ID" Type="int" Nullable="false" />
-    <Property Name="Exam_Sched_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Exam_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Class_Id" Type="int" Nullable="false" />
+    <Property Name="Section_Id" Type="int" Nullable="false" />
+    <Property Name="Subject_Id" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Start_Time" Type="time" Precision="7" Nullable="false" />
+    <Property Name="End_Time" Type="time" Precision="7" Nullable="false" />
   </EntityType>
-  <EntityType Name="Exam_Schedule">
+  <EntityType Name="Parent Record">
     <Key>
-      <PropertyRef Name="Exam_Sched_ID" />
+      <PropertyRef Name="P_Id" />
     </Key>
-    <Property Name="Exam_Sched_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Sub_ID" Type="int" Nullable="false" />
-    <Property Name="Start_Date" Type="datetime" Nullable="false" />
-    <Property Name="End_Date" Type="datetime" Nullable="false" />
-    <Property Name="Sec_ID" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Parent">
-    <Key>
-      <PropertyRef Name="Parent_ID" />
-    </Key>
-    <Property Name="Parent_ID" Type="int" Nullable="false" />
-    <Property Name="p_Name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Cell_Number" Type="int" Nullable="false" />
-    <Property Name="CNIC" Type="int" Nullable="false" />
+    <Property Name="P_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNIC" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DOB" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cell_Number" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Gender" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Stud_Roll_Number" Type="int" Nullable="false" />
     <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Result">
     <Key>
-      <PropertyRef Name="Res_ID" />
+      <PropertyRef Name="Result_Id" />
     </Key>
-    <Property Name="Res_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Stud_ID" Type="int" Nullable="false" />
-    <Property Name="Sub_ID" Type="int" Nullable="false" />
-    <Property Name="Number" Type="int" Nullable="false" />
+    <Property Name="Result_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Stud_Id" Type="int" Nullable="false" />
+    <Property Name="Class_Id" Type="int" Nullable="false" />
+    <Property Name="Section_Id" Type="int" Nullable="false" />
+    <Property Name="Subject_Id" Type="int" Nullable="false" />
+    <Property Name="Obtained_Marks" Type="int" Nullable="false" />
+    <Property Name="Total_Marks" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Salary">
+  <EntityType Name="Sections">
     <Key>
-      <PropertyRef Name="Sal_ID" />
+      <PropertyRef Name="Section_Id" />
     </Key>
-    <Property Name="Sal_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Salary" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Schedule">
-    <Key>
-      <PropertyRef Name="Sched_ID" />
-    </Key>
-    <Property Name="Sched_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Start_Time" Type="datetime" />
-    <Property Name="End_Time" Type="datetime" />
-    <Property Name="Off_Day" Type="bit" Nullable="false" />
-    <Property Name="Winter_ID" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Section">
-    <Key>
-      <PropertyRef Name="Sec_ID" />
-    </Key>
-    <Property Name="Sec_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Section_Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Section_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Class_Id" Type="int" Nullable="false" />
+    <Property Name="Staff_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Staff">
     <Key>
-      <PropertyRef Name="Staff_ID" />
+      <PropertyRef Name="Staff_Id" />
     </Key>
-    <Property Name="Staff_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Cnic" Type="int" Nullable="false" />
-    <Property Name="Name" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="PhoneNo" Type="int" Nullable="false" />
-    <Property Name="Desig_ID" Type="int" Nullable="false" />
-    <Property Name="Sal_ID" Type="int" Nullable="false" />
+    <Property Name="Staff_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cell_Number" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNIC" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Qualification" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Detail" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Designation_Id" Type="int" Nullable="false" />
+    <Property Name="Salary" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Student">
+  <EntityType Name="Staff_Attendence">
     <Key>
-      <PropertyRef Name="Stud_ID" />
+      <PropertyRef Name="S_Attendence_Id" />
     </Key>
-    <Property Name="Stud_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Stud_Name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Roll_No" Type="int" Nullable="false" />
-    <Property Name="Gender" Type="bit" Nullable="false" />
-    <Property Name="Phone_no" Type="int" Nullable="false" />
-    <Property Name="Class_ID" Type="int" Nullable="false" />
-    <Property Name="Sec_ID" Type="int" Nullable="false" />
-    <Property Name="Address" Type="varchar(max)" Nullable="false" />
-    <Property Name="DOB" Type="date" Nullable="false" />
-    <Property Name="Image" Type="image" />
-    <Property Name="Fee_Status" Type="bit" Nullable="false" />
+    <Property Name="S_Attendence_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Staff_Id" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Student Enrolment">
+    <Key>
+      <PropertyRef Name="Enrolment_Id" />
+    </Key>
+    <Property Name="Enrolment_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Stud_ID" Type="int" Nullable="false" />
+    <Property Name="Class_Id" Type="int" Nullable="false" />
+    <Property Name="Section_Id" Type="int" Nullable="false" />
+    <Property Name="Staff_Id" Type="int" Nullable="false" />
+    <Property Name="Session_Start" Type="date" Nullable="false" />
+    <Property Name="Session_End" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Student Record">
+    <Key>
+      <PropertyRef Name="Stud_Id" />
+    </Key>
+    <Property Name="Stud_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Father_Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DOB" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Roll_Number" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Admission_Date" Type="date" Nullable="false" />
     <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Father_ID" Type="int" />
   </EntityType>
-  <EntityType Name="Subject">
+  <EntityType Name="Subjects">
     <Key>
-      <PropertyRef Name="Sub_ID" />
+      <PropertyRef Name="Subject_Id" />
     </Key>
-    <Property Name="Sub_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Sub_Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Subject_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Class_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -169,46 +166,15 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <EntityType Name="Weather">
-    <Key>
-      <PropertyRef Name="Win_ID" />
-    </Key>
-    <Property Name="Win_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Win_Name" Type="varchar" MaxLength="50" Nullable="false" />
-  </EntityType>
-  <Association Name="FK_Attendence_Student">
-    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+  <Association Name="FK_Attendence_Student Record">
+    <End Role="Student Record" Type="Self.Student Record" Multiplicity="1" />
     <End Role="Attendence" Type="Self.Attendence" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Student">
-        <PropertyRef Name="Stud_ID" />
+      <Principal Role="Student Record">
+        <PropertyRef Name="Stud_Id" />
       </Principal>
       <Dependent Role="Attendence">
-        <PropertyRef Name="Stud_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Cl_Sec_Class">
-    <End Role="Class" Type="Self.Class" Multiplicity="1" />
-    <End Role="Cl_Sec" Type="Self.Cl_Sec" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Class">
-        <PropertyRef Name="Class_ID" />
-      </Principal>
-      <Dependent Role="Cl_Sec">
-        <PropertyRef Name="Class_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Class_Subject">
-    <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
-    <End Role="Class" Type="Self.Class" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Subject">
-        <PropertyRef Name="Sub_ID" />
-      </Principal>
-      <Dependent Role="Class">
-        <PropertyRef Name="Sub_ID" />
+        <PropertyRef Name="Stud_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -217,10 +183,22 @@
     <End Role="CST" Type="Self.CST" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Class">
-        <PropertyRef Name="Class_ID" />
+        <PropertyRef Name="Class_Id" />
       </Principal>
       <Dependent Role="CST">
-        <PropertyRef Name="Class_ID" />
+        <PropertyRef Name="Class_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CST_Sections">
+    <End Role="Sections" Type="Self.Sections" Multiplicity="1" />
+    <End Role="CST" Type="Self.CST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sections">
+        <PropertyRef Name="Section_Id" />
+      </Principal>
+      <Dependent Role="CST">
+        <PropertyRef Name="Section_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -229,106 +207,154 @@
     <End Role="CST" Type="Self.CST" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Staff">
-        <PropertyRef Name="Staff_ID" />
+        <PropertyRef Name="Staff_Id" />
       </Principal>
       <Dependent Role="CST">
-        <PropertyRef Name="Staff_ID" />
+        <PropertyRef Name="Staff_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_CST_Subject">
-    <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
+  <Association Name="FK_CST_Subjects">
+    <End Role="Subjects" Type="Self.Subjects" Multiplicity="1" />
     <End Role="CST" Type="Self.CST" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Subject">
-        <PropertyRef Name="Sub_ID" />
+      <Principal Role="Subjects">
+        <PropertyRef Name="Subject_Id" />
       </Principal>
       <Dependent Role="CST">
-        <PropertyRef Name="Sub_ID" />
+        <PropertyRef Name="Subject_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Exam_Class">
+  <Association Name="FK_Exam Schedule_Class">
     <End Role="Class" Type="Self.Class" Multiplicity="1" />
-    <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+    <End Role="Exam Schedule" Type="Self.Exam Schedule" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Class">
-        <PropertyRef Name="Class_ID" />
+        <PropertyRef Name="Class_Id" />
       </Principal>
-      <Dependent Role="Exam">
-        <PropertyRef Name="Class_ID" />
+      <Dependent Role="Exam Schedule">
+        <PropertyRef Name="Class_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Exam_Exam_Schedule">
-    <End Role="Exam_Schedule" Type="Self.Exam_Schedule" Multiplicity="1" />
-    <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+  <Association Name="FK_Exam Schedule_Sections">
+    <End Role="Sections" Type="Self.Sections" Multiplicity="1" />
+    <End Role="Exam Schedule" Type="Self.Exam Schedule" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Exam_Schedule">
-        <PropertyRef Name="Exam_Sched_ID" />
+      <Principal Role="Sections">
+        <PropertyRef Name="Section_Id" />
       </Principal>
-      <Dependent Role="Exam">
-        <PropertyRef Name="Exam_Sched_ID" />
+      <Dependent Role="Exam Schedule">
+        <PropertyRef Name="Section_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Exam_Schedule_Section">
-    <End Role="Section" Type="Self.Section" Multiplicity="1" />
-    <End Role="Exam_Schedule" Type="Self.Exam_Schedule" Multiplicity="*" />
+  <Association Name="FK_Exam Schedule_Subjects">
+    <End Role="Subjects" Type="Self.Subjects" Multiplicity="1" />
+    <End Role="Exam Schedule" Type="Self.Exam Schedule" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Section">
-        <PropertyRef Name="Sec_ID" />
+      <Principal Role="Subjects">
+        <PropertyRef Name="Subject_Id" />
       </Principal>
-      <Dependent Role="Exam_Schedule">
-        <PropertyRef Name="Sec_ID" />
+      <Dependent Role="Exam Schedule">
+        <PropertyRef Name="Subject_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Exam_Schedule_Subject">
-    <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
-    <End Role="Exam_Schedule" Type="Self.Exam_Schedule" Multiplicity="*" />
+  <Association Name="FK_Parent Record_Student Record">
+    <End Role="Student Record" Type="Self.Student Record" Multiplicity="1" />
+    <End Role="Parent Record" Type="Self.Parent Record" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Subject">
-        <PropertyRef Name="Sub_ID" />
+      <Principal Role="Student Record">
+        <PropertyRef Name="Stud_Id" />
       </Principal>
-      <Dependent Role="Exam_Schedule">
-        <PropertyRef Name="Sub_ID" />
+      <Dependent Role="Parent Record">
+        <PropertyRef Name="Stud_Roll_Number" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Result_Student">
-    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+  <Association Name="FK_Result_Class">
+    <End Role="Class" Type="Self.Class" Multiplicity="1" />
     <End Role="Result" Type="Self.Result" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Student">
-        <PropertyRef Name="Stud_ID" />
+      <Principal Role="Class">
+        <PropertyRef Name="Class_Id" />
       </Principal>
       <Dependent Role="Result">
-        <PropertyRef Name="Stud_ID" />
+        <PropertyRef Name="Class_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Result_Subject">
-    <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
+  <Association Name="FK_Result_Sections">
+    <End Role="Sections" Type="Self.Sections" Multiplicity="1" />
     <End Role="Result" Type="Self.Result" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Subject">
-        <PropertyRef Name="Sub_ID" />
+      <Principal Role="Sections">
+        <PropertyRef Name="Section_Id" />
       </Principal>
       <Dependent Role="Result">
-        <PropertyRef Name="Sub_ID" />
+        <PropertyRef Name="Section_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Schedule_Weather">
-    <End Role="Weather" Type="Self.Weather" Multiplicity="1" />
-    <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+  <Association Name="FK_Result_Student Record">
+    <End Role="Student Record" Type="Self.Student Record" Multiplicity="1" />
+    <End Role="Result" Type="Self.Result" Multiplicity="0..1" />
     <ReferentialConstraint>
-      <Principal Role="Weather">
-        <PropertyRef Name="Win_ID" />
+      <Principal Role="Student Record">
+        <PropertyRef Name="Stud_Id" />
       </Principal>
-      <Dependent Role="Schedule">
-        <PropertyRef Name="Winter_ID" />
+      <Dependent Role="Result">
+        <PropertyRef Name="Result_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Result_Subjects">
+    <End Role="Subjects" Type="Self.Subjects" Multiplicity="1" />
+    <End Role="Result" Type="Self.Result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="Subject_Id" />
+      </Principal>
+      <Dependent Role="Result">
+        <PropertyRef Name="Subject_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sections_Class">
+    <End Role="Class" Type="Self.Class" Multiplicity="1" />
+    <End Role="Sections" Type="Self.Sections" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="Class_Id" />
+      </Principal>
+      <Dependent Role="Sections">
+        <PropertyRef Name="Class_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sections_Staff">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="Sections" Type="Self.Sections" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="Staff_Id" />
+      </Principal>
+      <Dependent Role="Sections">
+        <PropertyRef Name="Staff_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Staff_Attendence_Staff">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="Staff_Attendence" Type="Self.Staff_Attendence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="Staff_Id" />
+      </Principal>
+      <Dependent Role="Staff_Attendence">
+        <PropertyRef Name="Staff_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -337,152 +363,177 @@
     <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Designation">
-        <PropertyRef Name="Desig_ID" />
+        <PropertyRef Name="Des_Id" />
       </Principal>
       <Dependent Role="Staff">
-        <PropertyRef Name="Desig_ID" />
+        <PropertyRef Name="Designation_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Staff_Salary">
-    <End Role="Salary" Type="Self.Salary" Multiplicity="1" />
-    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Salary">
-        <PropertyRef Name="Sal_ID" />
-      </Principal>
-      <Dependent Role="Staff">
-        <PropertyRef Name="Sal_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Student_Class">
+  <Association Name="FK_Student Enrolment_Class">
     <End Role="Class" Type="Self.Class" Multiplicity="1" />
-    <End Role="Student" Type="Self.Student" Multiplicity="*" />
+    <End Role="Student Enrolment" Type="Self.Student Enrolment" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Class">
-        <PropertyRef Name="Class_ID" />
+        <PropertyRef Name="Class_Id" />
       </Principal>
-      <Dependent Role="Student">
-        <PropertyRef Name="Class_ID" />
+      <Dependent Role="Student Enrolment">
+        <PropertyRef Name="Class_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Student_Parent">
-    <End Role="Parent" Type="Self.Parent" Multiplicity="0..1" />
-    <End Role="Student" Type="Self.Student" Multiplicity="*" />
+  <Association Name="FK_Student Enrolment_Sections">
+    <End Role="Sections" Type="Self.Sections" Multiplicity="1" />
+    <End Role="Student Enrolment" Type="Self.Student Enrolment" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Parent">
-        <PropertyRef Name="Parent_ID" />
+      <Principal Role="Sections">
+        <PropertyRef Name="Section_Id" />
       </Principal>
-      <Dependent Role="Student">
-        <PropertyRef Name="Father_ID" />
+      <Dependent Role="Student Enrolment">
+        <PropertyRef Name="Section_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Student_Section">
-    <End Role="Section" Type="Self.Section" Multiplicity="1" />
-    <End Role="Student" Type="Self.Student" Multiplicity="*" />
+  <Association Name="FK_Student Enrolment_Staff">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="Student Enrolment" Type="Self.Student Enrolment" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Section">
-        <PropertyRef Name="Sec_ID" />
+      <Principal Role="Staff">
+        <PropertyRef Name="Staff_Id" />
       </Principal>
-      <Dependent Role="Student">
-        <PropertyRef Name="Sec_ID" />
+      <Dependent Role="Student Enrolment">
+        <PropertyRef Name="Staff_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="SchoolSystemsModelStoreContainer">
+  <Association Name="FK_Student Enrolment_Student Record">
+    <End Role="Student Record" Type="Self.Student Record" Multiplicity="1" />
+    <End Role="Student Enrolment" Type="Self.Student Enrolment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student Record">
+        <PropertyRef Name="Stud_Id" />
+      </Principal>
+      <Dependent Role="Student Enrolment">
+        <PropertyRef Name="Stud_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Subjects_Class">
+    <End Role="Class" Type="Self.Class" Multiplicity="1" />
+    <End Role="Subjects" Type="Self.Subjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="Class_Id" />
+      </Principal>
+      <Dependent Role="Subjects">
+        <PropertyRef Name="Class_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="InvictusSchoolModelStoreContainer">
     <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Attendence" EntityType="Self.Attendence" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Cl_Sec" EntityType="Self.Cl_Sec" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CST" EntityType="Self.CST" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Designation" EntityType="Self.Designation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Exam" EntityType="Self.Exam" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Exam_Schedule" EntityType="Self.Exam_Schedule" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Parent" EntityType="Self.Parent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Exam Schedule" EntityType="Self.Exam Schedule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Parent Record" EntityType="Self.Parent Record" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Result" EntityType="Self.Result" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Salary" EntityType="Self.Salary" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Section" EntityType="Self.Section" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sections" EntityType="Self.Sections" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Staff_Attendence" EntityType="Self.Staff_Attendence" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student Enrolment" EntityType="Self.Student Enrolment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student Record" EntityType="Self.Student Record" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subjects" EntityType="Self.Subjects" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Weather" EntityType="Self.Weather" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_Attendence_Student" Association="Self.FK_Attendence_Student">
-      <End Role="Student" EntitySet="Student" />
+    <AssociationSet Name="FK_Attendence_Student Record" Association="Self.FK_Attendence_Student Record">
+      <End Role="Student Record" EntitySet="Student Record" />
       <End Role="Attendence" EntitySet="Attendence" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Cl_Sec_Class" Association="Self.FK_Cl_Sec_Class">
-      <End Role="Class" EntitySet="Class" />
-      <End Role="Cl_Sec" EntitySet="Cl_Sec" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Class_Subject" Association="Self.FK_Class_Subject">
-      <End Role="Subject" EntitySet="Subject" />
-      <End Role="Class" EntitySet="Class" />
     </AssociationSet>
     <AssociationSet Name="FK_CST_Class" Association="Self.FK_CST_Class">
       <End Role="Class" EntitySet="Class" />
+      <End Role="CST" EntitySet="CST" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CST_Sections" Association="Self.FK_CST_Sections">
+      <End Role="Sections" EntitySet="Sections" />
       <End Role="CST" EntitySet="CST" />
     </AssociationSet>
     <AssociationSet Name="FK_CST_Staff" Association="Self.FK_CST_Staff">
       <End Role="Staff" EntitySet="Staff" />
       <End Role="CST" EntitySet="CST" />
     </AssociationSet>
-    <AssociationSet Name="FK_CST_Subject" Association="Self.FK_CST_Subject">
-      <End Role="Subject" EntitySet="Subject" />
+    <AssociationSet Name="FK_CST_Subjects" Association="Self.FK_CST_Subjects">
+      <End Role="Subjects" EntitySet="Subjects" />
       <End Role="CST" EntitySet="CST" />
     </AssociationSet>
-    <AssociationSet Name="FK_Exam_Class" Association="Self.FK_Exam_Class">
+    <AssociationSet Name="FK_Exam Schedule_Class" Association="Self.FK_Exam Schedule_Class">
       <End Role="Class" EntitySet="Class" />
-      <End Role="Exam" EntitySet="Exam" />
+      <End Role="Exam Schedule" EntitySet="Exam Schedule" />
     </AssociationSet>
-    <AssociationSet Name="FK_Exam_Exam_Schedule" Association="Self.FK_Exam_Exam_Schedule">
-      <End Role="Exam_Schedule" EntitySet="Exam_Schedule" />
-      <End Role="Exam" EntitySet="Exam" />
+    <AssociationSet Name="FK_Exam Schedule_Sections" Association="Self.FK_Exam Schedule_Sections">
+      <End Role="Sections" EntitySet="Sections" />
+      <End Role="Exam Schedule" EntitySet="Exam Schedule" />
     </AssociationSet>
-    <AssociationSet Name="FK_Exam_Schedule_Section" Association="Self.FK_Exam_Schedule_Section">
-      <End Role="Section" EntitySet="Section" />
-      <End Role="Exam_Schedule" EntitySet="Exam_Schedule" />
+    <AssociationSet Name="FK_Exam Schedule_Subjects" Association="Self.FK_Exam Schedule_Subjects">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Exam Schedule" EntitySet="Exam Schedule" />
     </AssociationSet>
-    <AssociationSet Name="FK_Exam_Schedule_Subject" Association="Self.FK_Exam_Schedule_Subject">
-      <End Role="Subject" EntitySet="Subject" />
-      <End Role="Exam_Schedule" EntitySet="Exam_Schedule" />
+    <AssociationSet Name="FK_Parent Record_Student Record" Association="Self.FK_Parent Record_Student Record">
+      <End Role="Student Record" EntitySet="Student Record" />
+      <End Role="Parent Record" EntitySet="Parent Record" />
     </AssociationSet>
-    <AssociationSet Name="FK_Result_Student" Association="Self.FK_Result_Student">
-      <End Role="Student" EntitySet="Student" />
+    <AssociationSet Name="FK_Result_Class" Association="Self.FK_Result_Class">
+      <End Role="Class" EntitySet="Class" />
       <End Role="Result" EntitySet="Result" />
     </AssociationSet>
-    <AssociationSet Name="FK_Result_Subject" Association="Self.FK_Result_Subject">
-      <End Role="Subject" EntitySet="Subject" />
+    <AssociationSet Name="FK_Result_Sections" Association="Self.FK_Result_Sections">
+      <End Role="Sections" EntitySet="Sections" />
       <End Role="Result" EntitySet="Result" />
     </AssociationSet>
-    <AssociationSet Name="FK_Schedule_Weather" Association="Self.FK_Schedule_Weather">
-      <End Role="Weather" EntitySet="Weather" />
-      <End Role="Schedule" EntitySet="Schedule" />
+    <AssociationSet Name="FK_Result_Student Record" Association="Self.FK_Result_Student Record">
+      <End Role="Student Record" EntitySet="Student Record" />
+      <End Role="Result" EntitySet="Result" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Result_Subjects" Association="Self.FK_Result_Subjects">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Result" EntitySet="Result" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sections_Class" Association="Self.FK_Sections_Class">
+      <End Role="Class" EntitySet="Class" />
+      <End Role="Sections" EntitySet="Sections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sections_Staff" Association="Self.FK_Sections_Staff">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="Sections" EntitySet="Sections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staff_Attendence_Staff" Association="Self.FK_Staff_Attendence_Staff">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="Staff_Attendence" EntitySet="Staff_Attendence" />
     </AssociationSet>
     <AssociationSet Name="FK_Staff_Designation" Association="Self.FK_Staff_Designation">
       <End Role="Designation" EntitySet="Designation" />
       <End Role="Staff" EntitySet="Staff" />
     </AssociationSet>
-    <AssociationSet Name="FK_Staff_Salary" Association="Self.FK_Staff_Salary">
-      <End Role="Salary" EntitySet="Salary" />
-      <End Role="Staff" EntitySet="Staff" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Student_Class" Association="Self.FK_Student_Class">
+    <AssociationSet Name="FK_Student Enrolment_Class" Association="Self.FK_Student Enrolment_Class">
       <End Role="Class" EntitySet="Class" />
-      <End Role="Student" EntitySet="Student" />
+      <End Role="Student Enrolment" EntitySet="Student Enrolment" />
     </AssociationSet>
-    <AssociationSet Name="FK_Student_Parent" Association="Self.FK_Student_Parent">
-      <End Role="Parent" EntitySet="Parent" />
-      <End Role="Student" EntitySet="Student" />
+    <AssociationSet Name="FK_Student Enrolment_Sections" Association="Self.FK_Student Enrolment_Sections">
+      <End Role="Sections" EntitySet="Sections" />
+      <End Role="Student Enrolment" EntitySet="Student Enrolment" />
     </AssociationSet>
-    <AssociationSet Name="FK_Student_Section" Association="Self.FK_Student_Section">
-      <End Role="Section" EntitySet="Section" />
-      <End Role="Student" EntitySet="Student" />
+    <AssociationSet Name="FK_Student Enrolment_Staff" Association="Self.FK_Student Enrolment_Staff">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="Student Enrolment" EntitySet="Student Enrolment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student Enrolment_Student Record" Association="Self.FK_Student Enrolment_Student Record">
+      <End Role="Student Record" EntitySet="Student Record" />
+      <End Role="Student Enrolment" EntitySet="Student Enrolment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Subjects_Class" Association="Self.FK_Subjects_Class">
+      <End Role="Class" EntitySet="Class" />
+      <End Role="Subjects" EntitySet="Subjects" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

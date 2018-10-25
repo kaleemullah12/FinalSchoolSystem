@@ -17,25 +17,29 @@ namespace SchoolErp.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Class()
         {
-            this.Cl_Sec = new HashSet<Cl_Sec>();
             this.CSTs = new HashSet<CST>();
-            this.Exams = new HashSet<Exam>();
-            this.Students = new HashSet<Student>();
+            this.Exam_Schedule = new HashSet<Exam_Schedule>();
+            this.Results = new HashSet<Result>();
+            this.Sections = new HashSet<Section>();
+            this.Student_Enrolment = new HashSet<Student_Enrolment>();
+            this.Subjects = new HashSet<Subject>();
         }
     
-        public int Class_ID { get; set; }
-        public string Class_Name { get; set; }
-        public string Fees { get; set; }
-        public int Sub_ID { get; set; }
+        public int Class_Id { get; set; }
+        public string Name { get; set; }
+        public int Fees { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cl_Sec> Cl_Sec { get; set; }
-        public virtual Subject Subject { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CST> CSTs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Exam> Exams { get; set; }
+        public virtual ICollection<Exam_Schedule> Exam_Schedule { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Student> Students { get; set; }
+        public virtual ICollection<Result> Results { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Section> Sections { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Student_Enrolment> Student_Enrolment { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Subject> Subjects { get; set; }
     }
 }

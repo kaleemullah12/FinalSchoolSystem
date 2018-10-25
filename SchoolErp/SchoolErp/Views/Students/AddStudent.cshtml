@@ -23,20 +23,11 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Student Name</label>
-                                <input type="text" name="Stud_Name" id="st_name" class="form-control" required>
+                                <input type="text" name="Name" id="st_name" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label for="father">Father Name</label>
-                                <br />
-                                <select id="father" name="Father_ID" class="form-control" data-parsley-required data-parsley-trigger-after-failure="change" data-parsley-errors-container="">
-                                    <option value="">Select..........</option>
-                                    @foreach (var item in ViewBag.par)
-                                    {
-                                        
-                                        <option value="@item.Parent_ID">@item.p_Name</option>
-                                    }
-                                </select>
-                                <p id="error-multiselect"></p>
+                                <label>Father Name</label>
+                                <input type="text" name="Father_Name" id="father_name" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>Roll No#</label>
@@ -46,10 +37,7 @@
                                 <label>DOB</label>
                                 <input type="date" name="DOB" id="DOB" class="form-control" required>
                             </div>
-                            <div class="form-group">
-                                <label>Phone No#</label>
-                                <input type="number" name="Phone_no" id="Phone_no" class="form-control" required>
-                            </div>
+                            
                      
                             
                             <div class="form-group">
@@ -67,32 +55,6 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="class">Class</label>
-                                <br />
-                                <select id="class_ID" name="Class_ID" class="form-control" data-parsley-required data-parsley-trigger-after-failure="change" data-parsley-errors-container="">
-                                    <option value="">Select..........</option>
-                                     @foreach (var item in ViewBag.clas)
-                                    {
-                                        
-                                        <option value="@item.Class_ID">@item.Class_Name</option>
-                                    }
-                                </select>
-                                <p id="error-multiselect"></p>
-                            </div>
-                            <div class="form-group">
-                                <label for="Section">Section</label>
-                                <br />
-                                <select id="Section_ID" name="Sec_ID" class="form-control" data-parsley-required data-parsley-trigger-after-failure="change" data-parsley-errors-container="">
-                                    <option value="">Select..........</option>
-                                     @foreach (var item in ViewBag.sec)
-                                    {
-                                        <option value="@item.Sec_ID">@item.Section_Name</option>
-
-                                    }
-                                </select>
-                                <p id="error-multiselect"></p>
-                            </div>
                             <div class="form-group">
                                 <label>Password</label>
                                 <input type="password" name="password" id="password" class="form-control" required>

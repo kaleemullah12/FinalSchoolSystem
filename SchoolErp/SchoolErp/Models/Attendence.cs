@@ -14,10 +14,11 @@ namespace SchoolErp.Models
     
     public partial class Attendence
     {
-        public int Atten_ID { get; set; }
-        public int Stud_ID { get; set; }
-        public bool Present { get; set; }
+        public int Attendence_Id { get; set; }
+        public System.DateTime Date { get; set; }
+        public string Status { get; set; }
+        public int Stud_Id { get; set; }
     
-        public virtual Student Student { get; set; }
+        public virtual Student_Record Student_Record { get; set; }
     }
 }

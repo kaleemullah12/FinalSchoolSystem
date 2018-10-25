@@ -14,12 +14,14 @@ namespace SchoolErp.Models
     
     public partial class CST
     {
-        public int CST_ID { get; set; }
-        public int Sub_ID { get; set; }
-        public int Staff_ID { get; set; }
-        public int Class_ID { get; set; }
+        public int CST_Id { get; set; }
+        public int Subject_Id { get; set; }
+        public int Section_Id { get; set; }
+        public int Staff_Id { get; set; }
+        public int Class_Id { get; set; }
     
         public virtual Class Class { get; set; }
+        public virtual Section Section { get; set; }
         public virtual Staff Staff { get; set; }
         public virtual Subject Subject { get; set; }
     }

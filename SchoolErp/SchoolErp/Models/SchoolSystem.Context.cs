@@ -13,10 +13,10 @@ namespace SchoolErp.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SchoolSystemsEntities2 : DbContext
+    public partial class InvictusSchoolEntities : DbContext
     {
-        public SchoolSystemsEntities2()
-            : base("name=SchoolSystemsEntities2")
+        public InvictusSchoolEntities()
+            : base("name=InvictusSchoolEntities")
         {
         }
     
@@ -27,22 +27,19 @@ namespace SchoolErp.Models
     
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Attendence> Attendences { get; set; }
-        public virtual DbSet<Cl_Sec> Cl_Sec { get; set; }
         public virtual DbSet<Class> Classes { get; set; }
         public virtual DbSet<CST> CSTs { get; set; }
         public virtual DbSet<Designation> Designations { get; set; }
         public virtual DbSet<Event> Events { get; set; }
-        public virtual DbSet<Exam> Exams { get; set; }
-        public virtual DbSet<Exam_Schedule> Exam_Schedule { get; set; }
-        public virtual DbSet<Parent> Parents { get; set; }
+        public virtual DbSet<Exam_Schedule> Exam_Schedules { get; set; }
+        public virtual DbSet<Parent_Record> Parent_Records { get; set; }
         public virtual DbSet<Result> Results { get; set; }
-        public virtual DbSet<Salary> Salaries { get; set; }
-        public virtual DbSet<Schedule> Schedules { get; set; }
         public virtual DbSet<Section> Sections { get; set; }
         public virtual DbSet<Staff> Staffs { get; set; }
-        public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<Staff_Attendence> Staff_Attendence { get; set; }
+        public virtual DbSet<Student_Enrolment> Student_Enrolments { get; set; }
+        public virtual DbSet<Student_Record> Student_Records { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<Weather> Weathers { get; set; }
     }
 }

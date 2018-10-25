@@ -23,16 +23,14 @@ function clearform() {
 function Addstudent() {
    // debugger;
     //preventDefault();
+    
     var st_name = $('#st_name').val();
-    var father = $('#father option:selected').val();
+    var father = $('#father_name').val();
     var Rollno = $('#Rollno').val();
     var DOB = $('#DOB').val();
     var addresses = $('#addresses').val();
     var gender = $('#gender').val();
-    var class_ID = $('#class_ID option:selected').val();
-    var Section_ID = $('#Section_ID option:selected').val();
-    var password = $('#password').val();
-    var phone = $('#Phone_no').val();
+   var password = $('#password').val();
     
     if (st_name=="") {
         ShowError("Please Enter Student Name");
@@ -54,38 +52,25 @@ function Addstudent() {
         ShowError("Please Enter Address");
         return;
     }
-    if (class_ID == "") {
-        ShowError("Please Enter Class Name");
-        return;
-    }
-    if (Section_ID == "") {
-        ShowError("Please Enter Section Name");
-        return;
-    }
+   
     if (password == "") {
         ShowError("Please Enter Student Password");
         return;
     }
-    if (phone == "") {
-        ShowError("Please Enter Phone No#");
-        return;
-    }
+   
     $.ajax({
         url: "/Students/AddStudent",
         type: "Post",
        
         data: {
-            Stud_Name: st_name,
-            Roll_No: Rollno,
-            Father_ID: father,
+            Name: st_name,
+            Roll_Number: Rollno,
+            Father_Name: father,
             DOB: DOB,
-            Phone_no:phone ,
             Address: addresses,
             Password: password,
             Gender: gender,
-            Class_ID: class_ID,
-            Sec_ID:Section_ID,
-    
+           
         },
         contentType: "application/x-www-form-urlencoded; charset=UTF-8",
         datatype: "json",

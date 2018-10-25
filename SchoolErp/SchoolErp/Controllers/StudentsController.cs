@@ -10,7 +10,7 @@ namespace SchoolErp.Controllers
 {
     public class StudentsController : Controller
     {
-        SchoolSystemsEntities2 db = new SchoolSystemsEntities2();
+        InvictusSchoolEntities db = new InvictusSchoolEntities();
         // GET: Students
         public ActionResult Index()
         {
@@ -20,17 +20,17 @@ namespace SchoolErp.Controllers
         public ActionResult AddStudent()
         {
             ViewBag.sec = db.Sections.ToList();
-            ViewBag.par = db.Parents.ToList();
+            ViewBag.par = db.Parent_Records.ToList();
             ViewBag.clas = db.Classes.ToList();
             return View();
         }
         [HttpPost]
-        public JsonResult AddStudent(Student rec)
+        public JsonResult AddStudent(Student_Record rec)
         {
             StudentServices services = new StudentServices();
             services.AddStudent(rec);
             ViewBag.sec = db.Sections.ToList();
-            ViewBag.par = db.Parents.ToList();
+            ViewBag.par = db.Parent_Records.ToList();
             ViewBag.clas = db.Classes.ToList();
             return Json(new { msg="save"},JsonRequestBehavior.AllowGet);
         }

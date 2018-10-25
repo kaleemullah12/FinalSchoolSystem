@@ -12,14 +12,19 @@ namespace SchoolErp.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Exam
+    public partial class Student_Enrolment
     {
-        public int Exam_ID { get; set; }
-        public string Exam_Name { get; set; }
-        public int Class_ID { get; set; }
-        public int Exam_Sched_ID { get; set; }
+        public int Enrolment_Id { get; set; }
+        public int Stud_ID { get; set; }
+        public int Class_Id { get; set; }
+        public int Section_Id { get; set; }
+        public int Staff_Id { get; set; }
+        public System.DateTime Session_Start { get; set; }
+        public System.DateTime Session_End { get; set; }
     
         public virtual Class Class { get; set; }
-        public virtual Exam_Schedule Exam_Schedule { get; set; }
+        public virtual Section Section { get; set; }
+        public virtual Staff Staff { get; set; }
+        public virtual Student_Record Student_Record { get; set; }
     }
 }
