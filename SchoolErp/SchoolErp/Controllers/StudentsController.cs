@@ -19,9 +19,6 @@ namespace SchoolErp.Controllers
         [HttpGet]
         public ActionResult AddStudent()
         {
-            ViewBag.sec = db.Sections.ToList();
-            ViewBag.par = db.Parent_Records.ToList();
-            ViewBag.clas = db.Classes.ToList();
             return View();
         }
         [HttpPost]
@@ -29,9 +26,6 @@ namespace SchoolErp.Controllers
         {
             StudentServices services = new StudentServices();
             services.AddStudent(rec);
-            ViewBag.sec = db.Sections.ToList();
-            ViewBag.par = db.Parent_Records.ToList();
-            ViewBag.clas = db.Classes.ToList();
             return Json(new { msg="save"},JsonRequestBehavior.AllowGet);
         }
         public ActionResult AddParents()

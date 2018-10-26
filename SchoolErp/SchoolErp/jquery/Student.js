@@ -1,27 +1,23 @@
 ﻿
-
+$(document).ready(function () {
+    clearform();
+});
 
 
 function clearform() {
      $('#st_name').val('');
-     $('#father').val('');
-     $('#father').trigger('change');
-    $('#Rollno').val('');
+     $('#father_name').val('');
+     $('#Rollno').val('');
      $('#DOB').val('');
     $('#addresses').val('');
    $('#gender').val('');
-   $('#class_ID').val('');
-   $('#class_ID').trigger('change');
-   $('#Section_ID').val('');
-   $('#Section_ID').trigger('change');
-    $('#password').val('');
+   $('#password').val('');
 
-    $('#Phone_no').val('');
-
+  
 }
 
 function Addstudent() {
-   // debugger;
+    debugger;
     //preventDefault();
     
     var st_name = $('#st_name').val();
@@ -29,7 +25,7 @@ function Addstudent() {
     var Rollno = $('#Rollno').val();
     var DOB = $('#DOB').val();
     var addresses = $('#addresses').val();
-    var gender = $('#gender').val();
+    var gender = $("input[name='Gender']:checked").val();
    var password = $('#password').val();
     
     if (st_name=="") {
@@ -55,6 +51,10 @@ function Addstudent() {
    
     if (password == "") {
         ShowError("Please Enter Student Password");
+        return;
+    }
+    if (gender == "") {
+        ShowError("Please Enter Gender");
         return;
     }
    
