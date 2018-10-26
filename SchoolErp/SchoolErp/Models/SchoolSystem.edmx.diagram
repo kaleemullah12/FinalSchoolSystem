@@ -43,6 +43,8 @@
         <AssociationConnector Association="InvictusSchoolModel.FK_Staff_Attendence_Staff" ManuallyRouted="false" />
         <AssociationConnector Association="InvictusSchoolModel.FK_Student_Enrolment_Staff" ManuallyRouted="false" />
         <AssociationConnector Association="InvictusSchoolModel.FK_Student_Enrolment_Student_Record" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="InvictusSchoolModel.Relation" Width="1.5" PointX="10.375" PointY="0.875" />
+        <AssociationConnector Association="InvictusSchoolModel.FK_Parent_Record_Relations" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

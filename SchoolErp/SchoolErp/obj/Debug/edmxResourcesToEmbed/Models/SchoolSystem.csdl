@@ -93,6 +93,9 @@
     <Property Name="Stud_Roll_Number" Type="Int32" Nullable="false" />
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Student_Record" Relationship="Self.FK_Parent_Record_Student_Record" FromRole="Parent_Record" ToRole="Student_Record" />
+    <Property Name="Parent_Guardian" Type="Int32" Nullable="false" />
+    <Property Name="Relation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Relation1" Relationship="InvictusSchoolModel.FK_Parent_Record_Relations" FromRole="Parent_Record" ToRole="Relation" />
   </EntityType>
   <EntityType Name="Result">
     <Key>
@@ -579,5 +582,30 @@
       <End Role="Student_Record" EntitySet="Student_Records" />
       <End Role="Student_Enrolment" EntitySet="Student_Enrolments" />
     </AssociationSet>
+    <EntitySet Name="Relations" EntityType="InvictusSchoolModel.Relation" />
+    <AssociationSet Name="FK_Parent_Record_Relations" Association="InvictusSchoolModel.FK_Parent_Record_Relations">
+      <End Role="Relation" EntitySet="Relations" />
+      <End Role="Parent_Record" EntitySet="Parent_Records" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Relation">
+    <Key>
+      <PropertyRef Name="Relation_Id" />
+    </Key>
+    <Property Name="Relation_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Relation1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Parent_Record" Relationship="InvictusSchoolModel.FK_Parent_Record_Relations" FromRole="Relation" ToRole="Parent_Record" />
+  </EntityType>
+  <Association Name="FK_Parent_Record_Relations">
+    <End Type="InvictusSchoolModel.Relation" Role="Relation" Multiplicity="1" />
+    <End Type="InvictusSchoolModel.Parent_Record" Role="Parent_Record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Relation">
+        <PropertyRef Name="Relation_Id" />
+      </Principal>
+      <Dependent Role="Parent_Record">
+        <PropertyRef Name="Parent_Guardian" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

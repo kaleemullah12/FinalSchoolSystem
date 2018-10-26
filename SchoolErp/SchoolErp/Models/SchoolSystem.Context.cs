@@ -41,5 +41,6 @@ namespace SchoolErp.Models
         public virtual DbSet<Student_Record> Student_Records { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Relation> Relations { get; set; }
     }
 }

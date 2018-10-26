@@ -75,6 +75,8 @@
     <EntitySetMapping Name="Parent_Records">
       <EntityTypeMapping TypeName="InvictusSchoolModel.Parent_Record">
         <MappingFragment StoreEntitySet="Parent Record">
+          <ScalarProperty Name="Relation" ColumnName="Relation" />
+          <ScalarProperty Name="Parent_Guardian" ColumnName="Parent_Guardian" />
           <ScalarProperty Name="P_Id" ColumnName="P_Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="CNIC" ColumnName="CNIC" />
@@ -180,6 +182,14 @@
           <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
           <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Relations">
+      <EntityTypeMapping TypeName="InvictusSchoolModel.Relation">
+        <MappingFragment StoreEntitySet="Relations">
+          <ScalarProperty Name="Relation1" ColumnName="Relation" />
+          <ScalarProperty Name="Relation_Id" ColumnName="Relation_Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

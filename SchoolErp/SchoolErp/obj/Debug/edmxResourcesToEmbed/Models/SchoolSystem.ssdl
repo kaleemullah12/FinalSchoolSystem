@@ -77,6 +77,15 @@
     <Property Name="Gender" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Stud_Roll_Number" Type="int" Nullable="false" />
     <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Parent_Guardian" Type="int" Nullable="false" />
+    <Property Name="Relation" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Relations">
+    <Key>
+      <PropertyRef Name="Relation_Id" />
+    </Key>
+    <Property Name="Relation_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Relation" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Result">
     <Key>
@@ -262,6 +271,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Parent Record_Relations">
+    <End Role="Relations" Type="Self.Relations" Multiplicity="1" />
+    <End Role="Parent Record" Type="Self.Parent Record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Relations">
+        <PropertyRef Name="Relation_Id" />
+      </Principal>
+      <Dependent Role="Parent Record">
+        <PropertyRef Name="Parent_Guardian" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Parent Record_Student Record">
     <End Role="Student Record" Type="Self.Student Record" Multiplicity="1" />
     <End Role="Parent Record" Type="Self.Parent Record" Multiplicity="*" />
@@ -439,6 +460,7 @@
     <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Exam Schedule" EntityType="Self.Exam Schedule" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Parent Record" EntityType="Self.Parent Record" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Relations" EntityType="Self.Relations" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Result" EntityType="Self.Result" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sections" EntityType="Self.Sections" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
@@ -478,6 +500,10 @@
     <AssociationSet Name="FK_Exam Schedule_Subjects" Association="Self.FK_Exam Schedule_Subjects">
       <End Role="Subjects" EntitySet="Subjects" />
       <End Role="Exam Schedule" EntitySet="Exam Schedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Parent Record_Relations" Association="Self.FK_Parent Record_Relations">
+      <End Role="Relations" EntitySet="Relations" />
+      <End Role="Parent Record" EntitySet="Parent Record" />
     </AssociationSet>
     <AssociationSet Name="FK_Parent Record_Student Record" Association="Self.FK_Parent Record_Student Record">
       <End Role="Student Record" EntitySet="Student Record" />
