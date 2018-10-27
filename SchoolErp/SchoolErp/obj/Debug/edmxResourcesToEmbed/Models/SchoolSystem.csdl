@@ -137,7 +137,6 @@
     <Property Name="Cell_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CNIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Qualification" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Detail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Designation_Id" Type="Int32" Nullable="false" />
     <Property Name="Salary" Type="Int32" Nullable="false" />
@@ -146,6 +145,10 @@
     <NavigationProperty Name="Sections" Relationship="Self.FK_Sections_Staff" FromRole="Staff" ToRole="Sections" />
     <NavigationProperty Name="Staff_Attendence" Relationship="Self.FK_Staff_Attendence_Staff" FromRole="Staff" ToRole="Staff_Attendence" />
     <NavigationProperty Name="Student_Enrolment" Relationship="Self.FK_Student_Enrolment_Staff" FromRole="Staff" ToRole="Student_Enrolment" />
+    <Property Name="Qualification_Id" Type="Int32" Nullable="false" />
+    <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Gender" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Qualification1" Relationship="InvictusSchoolModel.FK_Staff_Qualification" FromRole="Staff" ToRole="Qualification" />
   </EntityType>
   <EntityType Name="Staff_Attendence">
     <Key>
@@ -587,6 +590,11 @@
       <End Role="Relation" EntitySet="Relations" />
       <End Role="Parent_Record" EntitySet="Parent_Records" />
     </AssociationSet>
+    <EntitySet Name="Qualifications" EntityType="InvictusSchoolModel.Qualification" />
+    <AssociationSet Name="FK_Staff_Qualification" Association="InvictusSchoolModel.FK_Staff_Qualification">
+      <End Role="Qualification" EntitySet="Qualifications" />
+      <End Role="Staff" EntitySet="Staffs" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Relation">
     <Key>
@@ -605,6 +613,26 @@
       </Principal>
       <Dependent Role="Parent_Record">
         <PropertyRef Name="Parent_Guardian" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Qualification">
+    <Key>
+      <PropertyRef Name="Qualification_Id" />
+    </Key>
+    <Property Name="Qualification_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Qualification1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Staffs" Relationship="InvictusSchoolModel.FK_Staff_Qualification" FromRole="Qualification" ToRole="Staff" />
+  </EntityType>
+  <Association Name="FK_Staff_Qualification">
+    <End Type="InvictusSchoolModel.Qualification" Role="Qualification" Multiplicity="1" />
+    <End Type="InvictusSchoolModel.Staff" Role="Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Qualification">
+        <PropertyRef Name="Qualification_Id" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="Qualification_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

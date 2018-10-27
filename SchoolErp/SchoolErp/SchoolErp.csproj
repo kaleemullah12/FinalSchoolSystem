@@ -192,6 +192,9 @@
     <Compile Include="Models\Parent_Record.cs">
       <DependentUpon>SchoolSystem.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Qualification.cs">
+      <DependentUpon>SchoolSystem.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Relation.cs">
       <DependentUpon>SchoolSystem.tt</DependentUpon>
     </Compile>
@@ -235,7 +238,14 @@
       <DependentUpon>SchoolSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ClassServices.cs" />
+    <Compile Include="Services\DesignationServices.cs" />
+    <Compile Include="Services\EnrolmentServices.cs" />
+    <Compile Include="Services\ParentServices.cs" />
+    <Compile Include="Services\SectionServices.cs" />
+    <Compile Include="Services\StaffServices.cs" />
     <Compile Include="Services\StudentServices.cs" />
+    <Compile Include="Services\SubjectServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="asset\animate.min.css" />
@@ -289,8 +299,14 @@
     <Content Include="images\bg1.jpg" />
     <Content Include="images\kaleem.jpg" />
     <Content Include="images\lok.jpg" />
+    <Content Include="jquery\Class.js" />
+    <Content Include="jquery\Designation.js" />
     <Content Include="jquery\Parent.js" />
+    <Content Include="jquery\Section.js" />
+    <Content Include="jquery\Staff.js" />
     <Content Include="jquery\Student.js" />
+    <Content Include="jquery\StudentEnrolment.js" />
+    <Content Include="jquery\Subject.js" />
     <Content Include="Models\SchoolSystem.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SchoolSystem.edmx</DependentUpon>
@@ -350,19 +366,14 @@
     <Content Include="Views\Home\menu.cshtml" />
     <Content Include="Views\Shared\Dashboard.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
-    <Content Include="Views\Students\AddParents.cshtml" />
-    <Content Include="Views\Students\AddAttendence.cshtml" />
-    <Content Include="Views\Staff\Staff.cshtml" />
     <Content Include="Views\Staff\AddDesignation.cshtml" />
-    <Content Include="Views\Staff\AddSalary.cshtml" />
     <Content Include="Views\Class\AddClass.cshtml" />
-    <Content Include="Views\Class\AddSection.cshtml" />
-    <Content Include="Views\Subject\Subject.cshtml" />
-    <Content Include="Views\Subject\SubjectDetails.cshtml" />
-    <Content Include="Views\Exam\SchoolSchedule.cshtml" />
-    <Content Include="Views\Exam\ExamSchedule.cshtml" />
     <Content Include="Views\Students\AddStudent.cshtml" />
     <Content Include="Views\Parents\AddParent.cshtml" />
+    <Content Include="Views\Staff\AddStaff.cshtml" />
+    <Content Include="Views\Class\AddSection.cshtml" />
+    <Content Include="Views\Class\AddSubject.cshtml" />
+    <Content Include="Views\Students\Student_Enrolment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

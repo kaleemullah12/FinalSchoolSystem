@@ -5,38 +5,38 @@ $(document).ready(function () {
 
 
 function clearform() {
-    $('#p_name').val('');
-    $('#CNIC').val('');
-    $('#DOB').val('');
-    $('#Cellnumb').val('');
-    $('#password').val('');
+    $('#S_Name').val('');
+    $('#S_CNIC').val('');
+    $('#S_DOB').val('');
+    $('#S_Cellnumb').val('');
+    $('#S_Salary').val('');
     $('#gender').val('');
-    $("#pgof").val('');
-    $('#pgof').trigger('change');
-    $("#pg").val('');
-    $('#pg').trigger('change');
-    $('#relation').val('');
-    $('#addresses').val('');
+    $("#S_Designation").val('');
+    $('#S_Designation').trigger('change');
+    $("#S_Qualification").val('');
+    $('#S_Qualification').trigger('change');
+    $('#S_Detail').val('');
+    $('#S_Address').val('');
 
 
 }
 
-function Addparent() {
+function AddStaff() {
     debugger;
     //preventDefault();
 
-    var p_name = $('#p_name').val();
-    var cnic = $('#CNIC').val();
-    var dob = $('#DOB').val();
-    var cellnumb = $('#Cellnumb').val();
-    var pass = $('#password').val();
+    var name = $('#S_Name').val();
+    var cnic = $('#S_CNIC').val();
+    var dob = $('#S_DOB').val();
+    var cellnumb = $('#S_Cellnumb').val();
+    var salary = $('#S_Salary').val();
     var gender = $("input[name='Gender']:checked").val();
-    var s_roll = $('#pgof option:selected').val();
-    var link = $('#pg option:selected').val();
-    var relation = $('#relation').val();
-    var address = $('#addresses').val();
+    var Des = $('#S_Designation option:selected').val();
+    var Qualif = $('#S_Qualification option:selected').val();
+    var Det = $('#S_Detail').val();
+    var address = $('#S_Address').val();
 
-    if (p_name == "") {
+    if (name == "") {
         ShowError("Please Enter  Name");
         return;
     }
@@ -52,47 +52,47 @@ function Addparent() {
         ShowError("Please Enter CELL NUMBER");
         return;
     }
-    if (pass == "") {
-        ShowError("Please Enter Password");
+    if (salary == "") {
+        ShowError("Please Enter Salary");
         return;
     }
 
-    if (address == "") {
-        ShowError("Please Enter Address");
+    if (Des == "") {
+        ShowError("Please Enter Designation");
         return;
     }
     if (gender == "") {
         ShowError("Please Enter Gender");
         return;
     }
-    if (link == "") {
-        ShowError("Please Enter P/G");
+    if (Qualif == "") {
+        ShowError("Please Enter Qualification");
         return;
     }
-    if (relation == "") {
-        ShowError("Please Enter Relation");
+    if (address == "") {
+        ShowError("Please Enter Address");
         return;
     }
-    if (s_roll == "") {
-        ShowError("Please Enter S_Roll");
+    if (Det == "") {
+        ShowError("Please Enter Detail");
         return;
     }
 
     $.ajax({
-        url: "/Parents/AddParent",
+        url: "/Staff/AddStaff",
         type: "Post",
 
         data: {
-            Name: p_name,
+            Name: name,
             CNIC: cnic,
             DOB: dob,
             Address: address,
             Cell_Number: cellnumb,
-            Password: pass,
+            Salary: salary,
+            Qualification_Id: Qualif,
+            Designation_Id: Des,
+            Detail: Det,
             Gender: gender,
-            Stud_Roll_Number: s_roll,
-            Parent_Guardian: link,
-            Relation : relation,
 
         },
         contentType: "application/x-www-form-urlencoded; charset=UTF-8",

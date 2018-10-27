@@ -80,6 +80,13 @@
     <Property Name="Parent_Guardian" Type="int" Nullable="false" />
     <Property Name="Relation" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="Qualification">
+    <Key>
+      <PropertyRef Name="Qualification_Id" />
+    </Key>
+    <Property Name="Qualification_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Qualification" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Relations">
     <Key>
       <PropertyRef Name="Relation_Id" />
@@ -91,7 +98,7 @@
     <Key>
       <PropertyRef Name="Result_Id" />
     </Key>
-    <Property Name="Result_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Result_Id" Type="int" Nullable="false" />
     <Property Name="Stud_Id" Type="int" Nullable="false" />
     <Property Name="Class_Id" Type="int" Nullable="false" />
     <Property Name="Section_Id" Type="int" Nullable="false" />
@@ -117,10 +124,12 @@
     <Property Name="Cell_Number" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="CNIC" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Qualification" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Qualification_Id" Type="int" Nullable="false" />
     <Property Name="Detail" Type="varchar" MaxLength="150" Nullable="false" />
     <Property Name="Designation_Id" Type="int" Nullable="false" />
     <Property Name="Salary" Type="int" Nullable="false" />
+    <Property Name="DOB" Type="date" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Staff_Attendence">
     <Key>
@@ -147,7 +156,7 @@
     <Key>
       <PropertyRef Name="Stud_Id" />
     </Key>
-    <Property Name="Stud_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Stud_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Father_Name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="DOB" Type="varchar" MaxLength="50" Nullable="false" />
@@ -283,6 +292,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Parent Record_Relations1">
+    <End Role="Relations" Type="Self.Relations" Multiplicity="1" />
+    <End Role="Parent Record" Type="Self.Parent Record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Relations">
+        <PropertyRef Name="Relation_Id" />
+      </Principal>
+      <Dependent Role="Parent Record">
+        <PropertyRef Name="Parent_Guardian" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Parent Record_Student Record">
     <End Role="Student Record" Type="Self.Student Record" Multiplicity="1" />
     <End Role="Parent Record" Type="Self.Parent Record" Multiplicity="*" />
@@ -391,6 +412,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Staff_Qualification">
+    <End Role="Qualification" Type="Self.Qualification" Multiplicity="1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Qualification">
+        <PropertyRef Name="Qualification_Id" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="Qualification_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Student Enrolment_Class">
     <End Role="Class" Type="Self.Class" Multiplicity="1" />
     <End Role="Student Enrolment" Type="Self.Student Enrolment" Multiplicity="*" />
@@ -460,6 +493,7 @@
     <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Exam Schedule" EntityType="Self.Exam Schedule" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Parent Record" EntityType="Self.Parent Record" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Qualification" EntityType="Self.Qualification" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Relations" EntityType="Self.Relations" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Result" EntityType="Self.Result" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sections" EntityType="Self.Sections" Schema="dbo" store:Type="Tables" />
@@ -505,6 +539,10 @@
       <End Role="Relations" EntitySet="Relations" />
       <End Role="Parent Record" EntitySet="Parent Record" />
     </AssociationSet>
+    <AssociationSet Name="FK_Parent Record_Relations1" Association="Self.FK_Parent Record_Relations1">
+      <End Role="Relations" EntitySet="Relations" />
+      <End Role="Parent Record" EntitySet="Parent Record" />
+    </AssociationSet>
     <AssociationSet Name="FK_Parent Record_Student Record" Association="Self.FK_Parent Record_Student Record">
       <End Role="Student Record" EntitySet="Student Record" />
       <End Role="Parent Record" EntitySet="Parent Record" />
@@ -539,6 +577,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Staff_Designation" Association="Self.FK_Staff_Designation">
       <End Role="Designation" EntitySet="Designation" />
+      <End Role="Staff" EntitySet="Staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staff_Qualification" Association="Self.FK_Staff_Qualification">
+      <End Role="Qualification" EntitySet="Qualification" />
       <End Role="Staff" EntitySet="Staff" />
     </AssociationSet>
     <AssociationSet Name="FK_Student Enrolment_Class" Association="Self.FK_Student Enrolment_Class">

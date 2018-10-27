@@ -1,11 +1,11 @@
 ﻿
 @{
-    ViewBag.Title = "AddParent";
+    ViewBag.Title = "AddStaff";
     Layout = "~/Views/Shared/Dashboard.cshtml";
 }
 
 
-<script src="~/jquery/Parent.js"></script>
+<script src="~/jquery/Staff.js"></script>
 <script src="~/asset/Common.js"></script>
 
 
@@ -15,7 +15,7 @@
     <div class="col-md-12" style="">
         <div class="card">
             <div class="header">
-                <h5>AddParent</h5>
+                <h5>AddStaff</h5>
             </div>
             <div class="body">
                 <form id="basic-form" method="post" novalidate>
@@ -23,23 +23,23 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Name</label>
-                                <input type="text" name="Name" id="p_name" class="form-control" required>
+                                <input type="text" name="Name" id="S_Name" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>CNIC</label>
-                                <input type="text" name="CNIC" id="CNIC" class="form-control" required>
+                                <input type="text" name="CNIC" id="S_CNIC" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>DOB</label>
-                                <input type="date" name="DOB" id="DOB" class="form-control" required>
+                                <input type="date" name="DOB" id="S_DOB" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>Cell Number</label>
-                                <input type="text" name="Cell_Number" id="Cellnumb" class="form-control" required>
+                                <input type="text" name="Cell_Number" id="S_Cellnumb" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" name="password" id="password" class="form-control" required>
+                                <label>Salary</label>
+                                <input type="text" id="S_Salary" value="0" class="form-control" onkeyup="this.value = this.value.replace(/[^\d]/, '');" />
                             </div>
 
 
@@ -58,41 +58,41 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                           
+
                             <div class="form-group">
-                                <label>Parent/Guardian Of :</label>
-                                <select  id="pgof" class="form-control" required>
+                                <label>Designation :</label>
+                                <select id="S_Designation" class="form-control" required>
                                     <option value="">Select...........</option>
-                                    @foreach (var item in ViewBag.stud)
+                                    @foreach (var item in ViewBag.Des)
                                     {
-                                        <option value="@item.Stud_Id">@item.Roll_Number</option>
+                                        <option value="@item.Des_Id">@item.Name</option>
                                     }
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Parent/Guardian</label>
-                                <select id="pg" class="form-control" required>
+                                <label>Qualification</label>
+                                <select id="S_Qualification" class="form-control" required>
                                     <option value="">Select...........</option>
-                                    @foreach (var item in ViewBag.rel)
+                                    @foreach (var item in ViewBag.Qualif)
                                     {
-                                        <option value="@item.Relation_Id">@item.Relation1</option>
+                                        <option value="@item.Qualification_Id">@item.Qualification1</option>
                                     }
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Relation</label>
-                                <input type="text" name="password" id="relation" class="form-control" required>
+                                <label>Detail</label>
+                                <input type="text" name="password" id="S_Detail" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>Address</label>
-                                <textarea class="form-control" cols="3" rows="3" id="addresses" name="Address" required></textarea>
+                                <textarea class="form-control" cols="3" rows="3" id="S_Address" name="Address" required></textarea>
                             </div>
                             <br>
 
                         </div>
                     </div>
 
-                    <button type="button" class="btn  btn-primary btn-block col-md-6" onclick="Addparent()">Save</button>
+                    <button type="button" class="btn  btn-primary btn-block col-md-6" onclick="AddStaff()">Save</button>
                 </form>
             </div>
         </div>

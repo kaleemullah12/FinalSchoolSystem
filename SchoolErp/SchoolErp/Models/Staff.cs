@@ -28,10 +28,12 @@ namespace SchoolErp.Models
         public string Cell_Number { get; set; }
         public string Address { get; set; }
         public string CNIC { get; set; }
-        public string Qualification { get; set; }
         public string Detail { get; set; }
         public int Designation_Id { get; set; }
         public int Salary { get; set; }
+        public int Qualification_Id { get; set; }
+        public System.DateTime DOB { get; set; }
+        public string Gender { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CST> CSTs { get; set; }
@@ -42,5 +44,6 @@ namespace SchoolErp.Models
         public virtual ICollection<Staff_Attendence> Staff_Attendence { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Student_Enrolment> Student_Enrolment { get; set; }
+        public virtual Qualification Qualification1 { get; set; }
     }
 }
