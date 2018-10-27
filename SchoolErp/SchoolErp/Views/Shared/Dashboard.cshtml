@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="description" content="Mplify Bootstrap 4.1.1 Admin Template">
     <meta name="author" content="ThemeMakker, design by: ThemeMakker.com">
-  
+
 
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- VENDOR CSS -->
@@ -18,13 +18,18 @@
     <link rel="stylesheet" href="~/asset/bootstrap-progressbar-3.3.4.min.css">
     @*<link rel="stylesheet" href="~/asset/chartist.min.css">
     <link rel="stylesheet" href="~/asset/chartist-plugin-tooltip.css">*@
-
+    @*<link href="~/Scripts/jquery.dataTables.css" rel="stylesheet" />*@
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="~/asset/main.css">
     <link rel="stylesheet" href="~/asset/color_skins.css">
+    @*<link href="~/Content/Pnotify/pnotify.custom.min.css" rel="stylesheet" />*@
+   
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 
-    <link href="~/Content/Pnotify/pnotify.custom.min.css" rel="stylesheet" />
+   
+   
 
+   
 </head>
 <body class="theme-blue">
 
@@ -242,9 +247,11 @@
                             <a href="#forms" class="has-arrow"><i class="icon-pencil"></i><span>Students</span></a>
                             <ul>
                                 <li><a href="/Students/AddStudent">add Student</a></li>
-                                <li><a href="forms-advanced.html">Add Parents</a></li>
-                                <li><a href="forms-basic.html">Student List</a></li>
-                                <li><a href="forms-wizard.html">Attendence</a></li>
+                                <li><a href="/Students/StudentList">Student List</a></li>
+                                <li><a href="forms-basic.html">Add Attendence</a></li>
+                                <li><a href="forms-wizard.html">Attendence List</a></li>
+                                <li><a href="forms-wizard.html">Add Student Enrollment</a></li>
+                                <li><a href="forms-wizard.html">Student Enrollment List</a></li>
                                 
                             </ul>
                         </li>
@@ -743,20 +750,26 @@
         </div>
 
     </div>
-
+   
     <!-- Javascript -->
+  
+    
     <script src="~/asset/libscripts.bundle.js"></script>
     <script src="~/asset/vendorscripts.bundle.js"></script>
 
+   
     @*<script src="~/asset/chartist.bundle.js"></script>*@
     @*<script src="~/asset/knob.bundle.js"></script> <!-- Jquery Knob-->
     <script src="~/asset/flotscripts.bundle.js"></script> <!-- flot charts Plugin Js -->
     <script src="~/asset/jquery.flot.selection.js"></script>*@
-
+    
     <script src="~/asset/mainscripts.bundle.js"></script>
+    
+    
 
     <script src="~/Content/Pnotify/pnotify.custom.min.js"></script>
-    <script src="~/asset/index.js"></script>
-
+    @*<script src="~/asset/index.js"></script>*@
+   
+   
 </body>
 </html>

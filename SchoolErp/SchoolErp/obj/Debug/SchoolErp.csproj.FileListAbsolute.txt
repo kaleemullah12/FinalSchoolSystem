@@ -283,3 +283,4 @@ E:\Final_SchoolSystem\FinalSchoolSystem\SchoolErp\SchoolErp\bin\Newtonsoft.Json.
 E:\Final_SchoolSystem\FinalSchoolSystem\SchoolErp\SchoolErp\obj\Debug\SchoolErp.csprojResolveAssemblyReference.cache
 E:\Final_SchoolSystem\FinalSchoolSystem\SchoolErp\SchoolErp\obj\Debug\SchoolErp.dll
 E:\Final_SchoolSystem\FinalSchoolSystem\SchoolErp\SchoolErp\obj\Debug\SchoolErp.pdb
+E:\Final_SchoolSystem\FinalSchoolSystem\SchoolErp\SchoolErp\bin\System.Linq.Dynamic.dll

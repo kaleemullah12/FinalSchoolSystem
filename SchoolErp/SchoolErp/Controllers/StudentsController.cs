@@ -11,11 +11,14 @@ namespace SchoolErp.Controllers
     public class StudentsController : Controller
     {
         InvictusSchoolEntities db = new InvictusSchoolEntities();
+        StudentServices services = new StudentServices();
         // GET: Students
         public ActionResult Index()
         {
             return View();
         }
+
+       
         [HttpGet]
         public ActionResult AddStudent()
         {
@@ -24,10 +27,11 @@ namespace SchoolErp.Controllers
         [HttpPost]
         public JsonResult AddStudent(Student_Record rec)
         {
-            StudentServices services = new StudentServices();
+           
             services.AddStudent(rec);
             return Json(new { msg="save"},JsonRequestBehavior.AllowGet);
         }
+<<<<<<< HEAD
         public ActionResult AddParents()
         {
             return View();
@@ -68,6 +72,9 @@ namespace SchoolErp.Controllers
             return Json(new { msg = "save" }, JsonRequestBehavior.AllowGet);
         }
 
+=======
+        
+>>>>>>> c16e9a8873cbf6a62e0e7f0354eb74003fc48bee
     }
 
 }
