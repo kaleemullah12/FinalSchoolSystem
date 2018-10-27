@@ -31,7 +31,7 @@ namespace SchoolErp.Controllers
             services.AddStudent(rec);
             return Json(new { msg="save"},JsonRequestBehavior.AllowGet);
         }
-<<<<<<< HEAD
+
         public ActionResult AddParents()
         {
             return View();
@@ -72,9 +72,7 @@ namespace SchoolErp.Controllers
             return Json(new { msg = "save" }, JsonRequestBehavior.AllowGet);
         }
 
-=======
-        
->>>>>>> c16e9a8873cbf6a62e0e7f0354eb74003fc48bee
+
     }
 
 }
