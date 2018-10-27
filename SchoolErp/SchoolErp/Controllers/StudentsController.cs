@@ -73,6 +73,11 @@ namespace SchoolErp.Controllers
         }
 
 
+<<<<<<< HEAD
+=======
+        
+
+>>>>>>> 05921ffb42049b79094d004ea8108caa8b9ae6fc
     }
 
 }
