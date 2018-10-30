@@ -20,11 +20,10 @@ namespace SchoolErp.Services
             db.SaveChanges();
 
         }
-<<<<<<< HEAD
 
 
-       
-=======
+
+     
        
         public object List()
         {
@@ -33,7 +32,7 @@ namespace SchoolErp.Services
         }
 
       
->>>>>>> 661393dbe848e6940a16195b3bea53dd87b20c99
+
     }
 
 

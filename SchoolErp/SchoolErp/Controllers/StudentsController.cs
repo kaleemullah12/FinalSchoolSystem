@@ -17,9 +17,7 @@ namespace SchoolErp.Controllers
         {
             return View();
         }
-<<<<<<< HEAD
 
-=======
      
   
         public ActionResult StudentList()
@@ -32,7 +30,7 @@ namespace SchoolErp.Controllers
             
             
         }
->>>>>>> 661393dbe848e6940a16195b3bea53dd87b20c99
+
        
         [HttpGet]
         public ActionResult AddStudent()
