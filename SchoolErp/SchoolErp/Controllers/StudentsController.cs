@@ -17,10 +17,17 @@ namespace SchoolErp.Controllers
         {
             return View();
         }
+     
+  
         public ActionResult StudentList()
+
         {
+          
+           
            var list= services.List();
-            return View(list);
+                return View(list);
+            
+            
         }
        
         [HttpGet]

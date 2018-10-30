@@ -1,9 +1,22 @@
 ﻿$(document).ready(function () {
     clearform();
-
+    $('#tab').DataTable();
    
 });
 
+//function Search() {
+//    debugger;
+//    var roll = $('#roll').val();
+//    $.ajax({
+//        url: "/Students/Search",
+//        type: "Post",
+//        data: {
+//            Roll_Number:roll,
+//        },
+      
+
+//    });
+//}
 
 function clearform() {
      $('#st_name').val('');

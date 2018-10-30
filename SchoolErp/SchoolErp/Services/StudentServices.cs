@@ -22,17 +22,14 @@ namespace SchoolErp.Services
             db.SaveChanges();
 
         }
+       
         public object List()
         {
             var obj = db.Student_Records.ToList();
             return obj;
         }
 
-        public object Index()
-        {
-           var obj= db.Student_Records.ToList();
-            return obj;
-        }
+      
     }
 
 

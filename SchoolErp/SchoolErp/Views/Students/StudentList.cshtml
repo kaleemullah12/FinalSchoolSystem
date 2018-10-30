@@ -2,72 +2,96 @@
 
 @{
     ViewBag.Title = "StudentList";
-    Layout = "~/Views/Shared/Dashboard.cshtml";
+    //Layout = "~/Views/Shared/Dashboard.cshtml";
+    Layout = "";
+}
+@*<link href="~/Scripts/jquery.dataTables.min.css" rel="stylesheet" />*@
+<h2>StudentList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" id="tab">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Father_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Roll_Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Admission_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Result.Result_Id)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Father_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Roll_Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Admission_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Result.Result_Id)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Stud_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Stud_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Stud_Id })
+        </td>
+    </tr>
 }
 
-<h2>StudentList</h2>
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-<link href="~/Scripts/perfect-scrollbar.css" rel="stylesheet" />
-<link href="~/Scripts/main.css" rel="stylesheet" />
-<div class="limiter col-md-10 border">
-    <div class="container-table100">
-        <div class="wrap-table100">
-            <div class="table100 ver1 m-b-110">
-                <div class="table100-head">
-                    <table>
-                        <thead>
-                            <tr class="row100 head">
-                                <th class="cell100 column1">@Html.DisplayNameFor(model => model.Name)</th>
-                                <th class="cell100 column2">@Html.DisplayNameFor(model => model.Father_Name)</th>
-                                <th class="cell100 column3">@Html.DisplayNameFor(model => model.DOB)</th>
-                                <th class="cell100 column3">@Html.DisplayNameFor(model => model.Roll_Number)</th>
-                                <th class="cell100 column4">@Html.DisplayNameFor(model => model.Address)</th>
-                                <th class="cell100 column5">@Html.DisplayNameFor(model => model.Admission_Date)</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
+</table>
+@*<script src="~/Scripts/jquery.dataTables.min.js"></script>*@
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+// JQuery Reference, If you have added jQuery reference in your master page then ignore,
+// else include this too with the below reference
 
-                <div class="table100-body js-pscroll">
-                    <table>
-                        <tbody>
-                            @foreach(var item in Model) { 
-                            <tr class="row100 body">
-                                <td class="cell100 column1">@Html.DisplayFor(modelItem => item.Name)</td>
-                                <td class="cell100 column2">@Html.DisplayFor(modelItem => item.Father_Name)</td>
-                                <td class="cell100 column3">@Html.DisplayFor(modelItem => item.DOB)</td>
-                                <td class="cell100 column4">@Html.DisplayFor(modelItem => item.Roll_Number)</td>
-                                <td class="cell100 column5">@Html.DisplayFor(modelItem => item.Address)</td>
-                                <td class="cell100 column5">@Html.DisplayFor(modelItem => item.Admission_Date)</td>
-                                <td>
-                                    @Html.ActionLink("Edit", "Edit", new { id = item.Stud_Id }) |
-                                   
-                                    @Html.ActionLink("Delete", "Delete", new { id = item.Stud_Id })
-
-
-                                </td>
-                            </tr>
-                            }
-                         
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            </div>
-    </div>
-</div>
+<script src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">
 <script>
-		$('.js-pscroll').each(function(){
-			var ps = new PerfectScrollbar(this);
+    $(document).ready(function () {
+     
+        $('#tab').DataTable();
 
-			$(window).on('resize', function(){
-				ps.update();
-			})
-		});
-
-
+    });
 </script>
-<script src="~/Scripts/jquery-3.2.1.min.js"></script>
-<script src="~/Scripts/perfect-scrollbar.min.js"></script>
