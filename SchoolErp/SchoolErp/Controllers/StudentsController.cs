@@ -36,10 +36,7 @@ namespace SchoolErp.Controllers
         {
             return View();
         }
-        public ActionResult AddAttendence()
-        {
-            return View();
-        }
+        
         [HttpGet]
         public ActionResult Student_Enrolment()
         {
@@ -71,8 +68,22 @@ namespace SchoolErp.Controllers
 
             return Json(new { msg = "save" }, JsonRequestBehavior.AllowGet);
         }
-
-
+        [HttpGet]
+        public ActionResult AddAttendence()
+        {
+            var stud_list = db.Student_Records.ToList();
+            ViewBag.stud = stud_list;
+            return View();
+        }
+        [HttpPost]
+        public JsonResult AddAttendence(Attendence rec)
+        {
+            S_AttendenceServices services = new S_AttendenceServices();
+            services.AddAttendence(rec);
+            var stud_list = db.Student_Records.ToList();
+            ViewBag.stud = stud_list;
+            return Json(new { msg = "save" }, JsonRequestBehavior.AllowGet);
+        }
         
 
     }
