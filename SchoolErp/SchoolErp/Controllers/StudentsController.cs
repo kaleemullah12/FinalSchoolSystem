@@ -17,7 +17,11 @@ namespace SchoolErp.Controllers
         {
             return View();
         }
-
+        public ActionResult StudentList()
+        {
+           var list= services.List();
+            return View(list);
+        }
        
         [HttpGet]
         public ActionResult AddStudent()
@@ -68,6 +72,7 @@ namespace SchoolErp.Controllers
 
             return Json(new { msg = "save" }, JsonRequestBehavior.AllowGet);
         }
+<<<<<<< HEAD
         [HttpGet]
         public ActionResult AddAttendence()
         {
@@ -84,8 +89,10 @@ namespace SchoolErp.Controllers
             ViewBag.stud = stud_list;
             return Json(new { msg = "save" }, JsonRequestBehavior.AllowGet);
         }
-        
+=======
 
+>>>>>>> 75824f6edc6c9107f42447061e3a1ac4f10c38fa
+        
     }
 
 }

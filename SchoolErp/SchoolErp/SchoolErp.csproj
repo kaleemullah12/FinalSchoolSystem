@@ -354,6 +354,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
+    <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.countup.js" />
     <Content Include="Scripts\jquery.dataTables.css" />
@@ -363,9 +364,12 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jquery.waypoints.min.js" />
+    <Content Include="Scripts\main.css" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\move-top.js" />
     <Content Include="Scripts\owl.carousel.js" />
+    <Content Include="Scripts\perfect-scrollbar.css" />
+    <Content Include="Scripts\perfect-scrollbar.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\SmoothScroll.min.js" />
@@ -395,12 +399,16 @@
     <Content Include="Views\Class\AddSection.cshtml" />
     <Content Include="Views\Class\AddSubject.cshtml" />
     <Content Include="Views\Students\Student_Enrolment.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Students\AddAttendence.cshtml" />
     <Content Include="Views\Staff\Staff_Attendence.cshtml" />
     <Content Include="Views\Subject\CST.cshtml" />
     <Content Include="Views\Exam\Exam_Schedule.cshtml" />
     <Content Include="Views\Exam\Result.cshtml" />
     <Content Include="Views\Event\Event.cshtml" />
+=======
+    <Content Include="Views\Students\StudentList.cshtml" />
+>>>>>>> 75824f6edc6c9107f42447061e3a1ac4f10c38fa
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

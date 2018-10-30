@@ -1,0 +1,73 @@
+﻿@model IEnumerable<SchoolErp.Models.Student_Record>
+
+@{
+    ViewBag.Title = "StudentList";
+    Layout = "~/Views/Shared/Dashboard.cshtml";
+}
+
+<h2>StudentList</h2>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Scripts/perfect-scrollbar.css" rel="stylesheet" />
+<link href="~/Scripts/main.css" rel="stylesheet" />
+<div class="limiter col-md-10 border">
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <div class="table100 ver1 m-b-110">
+                <div class="table100-head">
+                    <table>
+                        <thead>
+                            <tr class="row100 head">
+                                <th class="cell100 column1">@Html.DisplayNameFor(model => model.Name)</th>
+                                <th class="cell100 column2">@Html.DisplayNameFor(model => model.Father_Name)</th>
+                                <th class="cell100 column3">@Html.DisplayNameFor(model => model.DOB)</th>
+                                <th class="cell100 column3">@Html.DisplayNameFor(model => model.Roll_Number)</th>
+                                <th class="cell100 column4">@Html.DisplayNameFor(model => model.Address)</th>
+                                <th class="cell100 column5">@Html.DisplayNameFor(model => model.Admission_Date)</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+                <div class="table100-body js-pscroll">
+                    <table>
+                        <tbody>
+                            @foreach(var item in Model) { 
+                            <tr class="row100 body">
+                                <td class="cell100 column1">@Html.DisplayFor(modelItem => item.Name)</td>
+                                <td class="cell100 column2">@Html.DisplayFor(modelItem => item.Father_Name)</td>
+                                <td class="cell100 column3">@Html.DisplayFor(modelItem => item.DOB)</td>
+                                <td class="cell100 column4">@Html.DisplayFor(modelItem => item.Roll_Number)</td>
+                                <td class="cell100 column5">@Html.DisplayFor(modelItem => item.Address)</td>
+                                <td class="cell100 column5">@Html.DisplayFor(modelItem => item.Admission_Date)</td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.Stud_Id }) |
+                                   
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Stud_Id })
+
+
+                                </td>
+                            </tr>
+                            }
+                         
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            </div>
+    </div>
+</div>
+<script>
+		$('.js-pscroll').each(function(){
+			var ps = new PerfectScrollbar(this);
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+
+
+</script>
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script src="~/Scripts/perfect-scrollbar.min.js"></script>

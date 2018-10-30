@@ -16,13 +16,23 @@ namespace SchoolErp.Services
         public void AddStudent(Student_Record rec)
         {
             rec.Admission_Date = DateTime.Now;
+           
+
             db.Student_Records.Add(rec);
             db.SaveChanges();
 
         }
+        public object List()
+        {
+            var obj = db.Student_Records.ToList();
+            return obj;
+        }
 
-
-       
+        public object Index()
+        {
+           var obj= db.Student_Records.ToList();
+            return obj;
+        }
     }
 
 
