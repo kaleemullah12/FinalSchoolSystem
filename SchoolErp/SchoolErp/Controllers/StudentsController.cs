@@ -17,7 +17,11 @@ namespace SchoolErp.Controllers
         {
             return View();
         }
-
+        public ActionResult StudentList()
+        {
+           var list= services.List();
+            return View(list);
+        }
        
         [HttpGet]
         public ActionResult AddStudent()
@@ -72,12 +76,7 @@ namespace SchoolErp.Controllers
             return Json(new { msg = "save" }, JsonRequestBehavior.AllowGet);
         }
 
-
-<<<<<<< HEAD
-=======
         
-
->>>>>>> 05921ffb42049b79094d004ea8108caa8b9ae6fc
     }
 
 }
