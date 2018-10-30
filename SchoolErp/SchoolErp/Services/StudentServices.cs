@@ -20,9 +20,20 @@ namespace SchoolErp.Services
             db.SaveChanges();
 
         }
+<<<<<<< HEAD
 
 
        
+=======
+       
+        public object List()
+        {
+            var obj = db.Student_Records.ToList();
+            return obj;
+        }
+
+      
+>>>>>>> 661393dbe848e6940a16195b3bea53dd87b20c99
     }
 
 
