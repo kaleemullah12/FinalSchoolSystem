@@ -21,8 +21,27 @@ namespace SchoolErp.Services
 
         }
 
+        public object List()
+        {
+            var obj = db.Student_Records.ToList();
+            return obj;
+        }
+        
 
+<<<<<<< HEAD
+=======
+
+     
        
+        public object List()
+        {
+            var obj = db.Student_Records.ToList();
+            return obj;
+        }
+
+      
+
+>>>>>>> ff09218455f10ac03012212ae929f7b96bfecaa1
     }
 
 

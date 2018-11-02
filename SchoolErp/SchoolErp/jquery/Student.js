@@ -1,9 +1,22 @@
 ﻿$(document).ready(function () {
     clearform();
-
+    $('#tab').DataTable();
    
 });
 
+//function Search() {
+//    debugger;
+//    var roll = $('#roll').val();
+//    $.ajax({
+//        url: "/Students/Search",
+//        type: "Post",
+//        data: {
+//            Roll_Number:roll,
+//        },
+      
+
+//    });
+//}
 
 function clearform() {
      $('#st_name').val('');
@@ -12,7 +25,7 @@ function clearform() {
      $('#DOB').val('');
     $('#addresses').val('');
     //$("input[name='Gender']:checked").val('');
-    $("input[name='Gender']").prop('checked', false);
+    var gender = $("input[name='Gender']:checked").val();
    $('#password').val('');
 
   
