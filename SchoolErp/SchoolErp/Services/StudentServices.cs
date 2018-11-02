@@ -15,23 +15,42 @@ namespace SchoolErp.Services
         // GET: StudentServices
         public void AddStudent(Student_Record rec)
         {
-            rec.Admission_Date = DateTime.Now;
-            db.Student_Records.Add(rec);
+           
+            
+                rec.Admission_Date = DateTime.Now;
+                db.Student_Records.Add(rec);
+                db.SaveChanges();
+           
+        }
+        //public object List()
+        //{
+        //    var obj = db.Student_Records.ToList(); 
+        //        return obj;
+        //}
+        public void Remove(int id)
+        {
+            var rec = db.Student_Records.Find(id);
+            db.Student_Records.Remove(rec);
+            db.SaveChanges();
+        }
+        public void Update(Student_Record rec)
+        {
+
+            var ret = db.Student_Records.Where(x => x.Stud_Id == rec.Stud_Id).SingleOrDefault();
+            ret.Stud_Id = rec.Stud_Id;
+            ret.Name = rec.Name;
+            ret.Father_Name = rec.Father_Name;
+            ret.Address = rec.Address;
+            ret.DOB = rec.DOB;
+            ret.Password = rec.Password;
+            ret.Roll_Number = rec.Roll_Number;
+            ret.Gender = ret.Gender;
+            ret.Admission_Date = ret.Admission_Date;
             db.SaveChanges();
 
         }
 
 
-
-     
-       
-        public object List()
-        {
-            var obj = db.Student_Records.ToList();
-            return obj;
-        }
-
-      
 
     }
 

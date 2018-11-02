@@ -78,10 +78,6 @@ function AddStaff() {
         return;
     }
 
-   
-
-
-
     $.ajax({
         url: "/Staff/AddStaff",
         type: "Post",

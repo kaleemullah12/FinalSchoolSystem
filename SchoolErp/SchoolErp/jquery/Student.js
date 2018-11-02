@@ -1,22 +1,9 @@
 ﻿$(document).ready(function () {
     clearform();
-    $('#tab').DataTable();
-   
+
+    studentlist();
 });
 
-//function Search() {
-//    debugger;
-//    var roll = $('#roll').val();
-//    $.ajax({
-//        url: "/Students/Search",
-//        type: "Post",
-//        data: {
-//            Roll_Number:roll,
-//        },
-      
-
-//    });
-//}
 
 function clearform() {
      $('#st_name').val('');
@@ -25,21 +12,95 @@ function clearform() {
      $('#DOB').val('');
     $('#addresses').val('');
     //$("input[name='Gender']:checked").val('');
-    var gender = $("input[name='Gender']:checked").val();
+    $("input[name='Gender']").prop('checked', false);
    $('#password').val('');
 
   
 }
+ 
+function Editstudent() {
+    //debugger;
+    var id= $('#id').val();
+    var st_name = $('#st_name').val();
+    var father = $('#father_name').val();
+    var Rollno = $('#Rollno').val();
+    var DOB = $('#DOB').val();
+    var address = $('#address').val();
+   
+    var password = $('#password').val();
+
+    if (id == "") {
+        ShowError("Please Again select Record");
+        return;
+    }
+    if (st_name == "") {
+        ShowError("Please Enter Student Name");
+        return;
+    }
+    if (father == "") {
+        ShowError("Please Enter Father Name");
+        return;
+    }
+    if (Rollno == "") {
+        ShowError("Please Enter Roll No");
+        return;
+    }
+    if (DOB == "") {
+        ShowError("Please Enter DOB");
+        return;
+    }
+    if (address == "") {
+        ShowError("Please Enter Address");
+        return;
+    }
+
+    if (password == "") {
+        ShowError("Please Enter Student Password");
+        return;
+    }
+   
+
+    $.ajax({
+        url: "/Students/UpdateStudent",
+        type: "Post",
+
+        data: {
+            Stud_Id:id,
+            Name: st_name,
+            Roll_Number: Rollno,
+            Father_Name: father,
+            DOB: DOB,
+            Address: address,
+            Password: password,
+          
+
+        },
+        
+        datatype: "json",
+        success: function (data) {
+            if (data.data == "Edit") {
+                ShowSuccess('Updated SuccessFully');
+                clearform();
+            }
+        },
+        error: function (error) {
+            ShowError('Error in saving');
+        },
+
+    });
+}
+
+
 
 function Addstudent() {
-    debugger;
+    //debugger;
     //preventDefault();
     
     var st_name = $('#st_name').val();
     var father = $('#father_name').val();
     var Rollno = $('#Rollno').val();
     var DOB = $('#DOB').val();
-    var addresses = $('#addresses').val();
+    var address = $('#address').val();
     var gender = $("input[name='Gender']:checked").val();
    var password = $('#password').val();
     
@@ -59,7 +120,7 @@ function Addstudent() {
         ShowError("Please Enter DOB");
         return;
     }
-    if (addresses == "") {
+    if (address == "") {
         ShowError("Please Enter Address");
         return;
     }
@@ -82,7 +143,7 @@ function Addstudent() {
             Roll_Number: Rollno,
             Father_Name: father,
             DOB: DOB,
-            Address: addresses,
+            Address: address,
             Password: password,
             Gender: gender,
            

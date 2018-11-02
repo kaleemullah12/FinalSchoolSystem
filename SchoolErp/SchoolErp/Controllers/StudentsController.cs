@@ -17,25 +17,51 @@ namespace SchoolErp.Controllers
         {
             return View();
         }
-
-     
-  
-        public ActionResult StudentList()
-
+        //public ActionResult StudentList()
+        //{
+        //   var list= services.List();
+        //    return View(list);
+        //}
+       public ActionResult RemoveStudent(int id)
         {
-          
-           
-           var list= services.List();
-                return View(list);
-            
-            
+            if (Session["admin"] != null) { 
+            services.Remove(id);
+            return RedirectToAction("StudentList");
+            }
+            else
+            {
+                
+                return Content("you are not Authorize");
+            }
         }
-
-       
+        [HttpGet]
+        public ActionResult GetStudent(int id)
+        {
+            if (Session["admin"] != null) { 
+            var det = db.Student_Records.Find(id);
+            return View(det);
+            }
+            else
+            {
+                return Content("you are not Authorize");
+            }
+        }
+        [HttpPost]
+        public JsonResult UpdateStudent(Student_Record rec)
+        {
+            services.Update(rec);
+            return Json(new { data="Edit"},JsonRequestBehavior.AllowGet);
+        }
         [HttpGet]
         public ActionResult AddStudent()
         {
+            if (Session["admin"] != null) { 
             return View();
+            }
+            else
+            {
+                return Content("You Are Not Authorize");
+            }
         }
         [HttpPost]
         public JsonResult AddStudent(Student_Record rec)
@@ -49,7 +75,10 @@ namespace SchoolErp.Controllers
         {
             return View();
         }
-        
+        public ActionResult AddAttendence()
+        {
+            return View();
+        }
         [HttpGet]
         public ActionResult Student_Enrolment()
         {
@@ -81,24 +110,8 @@ namespace SchoolErp.Controllers
 
             return Json(new { msg = "save" }, JsonRequestBehavior.AllowGet);
         }
-        [HttpGet]
-        public ActionResult AddAttendence()
-        {
-            var stud_list = db.Student_Records.ToList();
-            ViewBag.stud = stud_list;
-            return View();
-        }
-        [HttpPost]
-        public JsonResult AddAttendence(Attendence rec)
-        {
-            S_AttendenceServices services = new S_AttendenceServices();
-            services.AddAttendence(rec);
-            var stud_list = db.Student_Records.ToList();
-            ViewBag.stud = stud_list;
-            return Json(new { msg = "save" }, JsonRequestBehavior.AllowGet);
-        }
-        
 
+        
     }
 
 }

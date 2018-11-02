@@ -53,21 +53,5 @@ namespace SchoolErp.Controllers
         {
             return View();
         }
-        [HttpGet]
-        public ActionResult Staff_Attendence()
-        {
-            var stf_list = db.Staffs.ToList();
-            ViewBag.st = stf_list;
-            return View();
-        }
-        [HttpPost]
-        public JsonResult Staff_Attendence(Staff_Attendence rec)
-        {
-            Staff_AttendenceServices services = new Staff_AttendenceServices();
-            services.Staff_Attendence(rec);
-            var stf_list = db.Staffs.ToList();
-            ViewBag.st = stf_list;
-            return Json(new { msg = "save" }, JsonRequestBehavior.AllowGet);
-        }
     }
 }
