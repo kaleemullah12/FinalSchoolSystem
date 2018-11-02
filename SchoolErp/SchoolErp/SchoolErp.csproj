@@ -361,6 +361,9 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\SmoothScroll.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Table\dashboard.js" />
+    <Content Include="Table\index.js" />
+    <Content Include="Table\style.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -386,8 +389,8 @@
     <Content Include="Views\Class\AddSection.cshtml" />
     <Content Include="Views\Class\AddSubject.cshtml" />
     <Content Include="Views\Students\Student_Enrolment.cshtml" />
-    <Content Include="Views\Students\StudentList.cshtml" />
     <Content Include="Views\Students\GetStudent.cshtml" />
+    <Content Include="Views\Students\StudentList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

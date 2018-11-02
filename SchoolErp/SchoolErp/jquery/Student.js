@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
     clearform();
 
-    studentlist();
+    //studentlist();
 });
 
 
@@ -10,7 +10,7 @@ function clearform() {
      $('#father_name').val('');
      $('#Rollno').val('');
      $('#DOB').val('');
-    $('#addresses').val('');
+    $('#address').val('');
     //$("input[name='Gender']:checked").val('');
     $("input[name='Gender']").prop('checked', false);
    $('#password').val('');

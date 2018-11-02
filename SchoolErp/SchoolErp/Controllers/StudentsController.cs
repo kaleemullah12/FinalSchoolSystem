@@ -17,12 +17,12 @@ namespace SchoolErp.Controllers
         {
             return View();
         }
-        //public ActionResult StudentList()
-        //{
-        //   var list= services.List();
-        //    return View(list);
-        //}
-       public ActionResult RemoveStudent(int id)
+        public ActionResult StudentList()
+        {
+            var list = services.List();
+            return View(list);
+        }
+        public ActionResult RemoveStudent(int id)
         {
             if (Session["admin"] != null) { 
             services.Remove(id);
@@ -31,7 +31,7 @@ namespace SchoolErp.Controllers
             else
             {
                 
-                return Content("you are not Authorize");
+                return RedirectToAction("Index","Home");
             }
         }
         [HttpGet]
@@ -43,7 +43,7 @@ namespace SchoolErp.Controllers
             }
             else
             {
-                return Content("you are not Authorize");
+                return RedirectToAction("Index", "Home");
             }
         }
         [HttpPost]
@@ -60,7 +60,7 @@ namespace SchoolErp.Controllers
             }
             else
             {
-                return Content("You Are Not Authorize");
+                return RedirectToAction("Index", "Home");
             }
         }
         [HttpPost]
