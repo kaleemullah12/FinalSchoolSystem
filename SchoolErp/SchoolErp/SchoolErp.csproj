@@ -404,7 +404,10 @@
     <Content Include="Views\Exam\Result.cshtml" />
     <Content Include="Views\Event\Event.cshtml" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Content Include="Views\Students\StudentList.cshtml" />
+=======
+>>>>>>> ff09218455f10ac03012212ae929f7b96bfecaa1
 =======
 >>>>>>> ff09218455f10ac03012212ae929f7b96bfecaa1
   </ItemGroup>

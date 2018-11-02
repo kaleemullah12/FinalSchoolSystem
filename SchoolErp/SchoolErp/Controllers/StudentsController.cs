@@ -56,12 +56,15 @@ namespace SchoolErp.Controllers
 
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
         public ActionResult AddParents()
         {
             return View();
         }
+=======
+>>>>>>> ff09218455f10ac03012212ae929f7b96bfecaa1
 =======
 >>>>>>> ff09218455f10ac03012212ae929f7b96bfecaa1
         
@@ -113,8 +116,11 @@ namespace SchoolErp.Controllers
             return Json(new { msg = "save" }, JsonRequestBehavior.AllowGet);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ff09218455f10ac03012212ae929f7b96bfecaa1
 =======
 >>>>>>> ff09218455f10ac03012212ae929f7b96bfecaa1
         
