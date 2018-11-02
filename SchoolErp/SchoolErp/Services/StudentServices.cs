@@ -36,6 +36,7 @@ namespace SchoolErp.Services
         public void Update(Student_Record rec)
         {
 
+<<<<<<< HEAD
             var ret = db.Student_Records.Where(x => x.Stud_Id == rec.Stud_Id).SingleOrDefault();
             ret.Stud_Id = rec.Stud_Id;
             ret.Name = rec.Name;
@@ -48,10 +49,35 @@ namespace SchoolErp.Services
             ret.Admission_Date = ret.Admission_Date;
             db.SaveChanges();
 
+=======
+        public object List()
+        {
+            var obj = db.Student_Records.ToList();
+            return obj;
+        }
+        
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> ff09218455f10ac03012212ae929f7b96bfecaa1
+
+     
+       
+        public object List()
+        {
+            var obj = db.Student_Records.ToList();
+            return obj;
+>>>>>>> 942951c5f2fe3fb548f77941b95ee13156b27037
         }
 
 
 
+<<<<<<< HEAD
+>>>>>>> ff09218455f10ac03012212ae929f7b96bfecaa1
+=======
+>>>>>>> ff09218455f10ac03012212ae929f7b96bfecaa1
     }
 
 

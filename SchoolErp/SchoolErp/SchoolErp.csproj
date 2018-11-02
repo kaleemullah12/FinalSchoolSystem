@@ -361,6 +361,8 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\SmoothScroll.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Table\css\style.css" />
+    <Content Include="Table\js\index.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -386,8 +388,24 @@
     <Content Include="Views\Class\AddSection.cshtml" />
     <Content Include="Views\Class\AddSubject.cshtml" />
     <Content Include="Views\Students\Student_Enrolment.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Students\StudentList.cshtml" />
     <Content Include="Views\Students\GetStudent.cshtml" />
+=======
+    <Content Include="Views\Students\AddAttendence.cshtml" />
+    <Content Include="Views\Staff\Staff_Attendence.cshtml" />
+    <Content Include="Views\Subject\CST.cshtml" />
+    <Content Include="Views\Exam\Exam_Schedule.cshtml" />
+    <Content Include="Views\Exam\Result.cshtml" />
+    <Content Include="Views\Event\Event.cshtml" />
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <Content Include="Views\Students\StudentList.cshtml" />
+=======
+>>>>>>> ff09218455f10ac03012212ae929f7b96bfecaa1
+=======
+>>>>>>> ff09218455f10ac03012212ae929f7b96bfecaa1
+>>>>>>> 942951c5f2fe3fb548f77941b95ee13156b27037
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

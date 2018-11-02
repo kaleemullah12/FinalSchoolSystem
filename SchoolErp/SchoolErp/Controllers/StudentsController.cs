@@ -71,14 +71,36 @@ namespace SchoolErp.Controllers
             return Json(new { msg="save"},JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult StudentList()
+
+        {
+
+
+            var list = services.List();
+            return View(list);
+
+
+        }
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+
         public ActionResult AddParents()
         {
             return View();
         }
+<<<<<<< HEAD
         public ActionResult AddAttendence()
         {
             return View();
         }
+=======
+=======
+>>>>>>> ff09218455f10ac03012212ae929f7b96bfecaa1
+=======
+>>>>>>> ff09218455f10ac03012212ae929f7b96bfecaa1
+        
+>>>>>>> 942951c5f2fe3fb548f77941b95ee13156b27037
         [HttpGet]
         public ActionResult Student_Enrolment()
         {
@@ -110,6 +132,34 @@ namespace SchoolErp.Controllers
 
             return Json(new { msg = "save" }, JsonRequestBehavior.AllowGet);
         }
+<<<<<<< HEAD
+=======
+        [HttpGet]
+        public ActionResult AddAttendence()
+        {
+            var stud_list = db.Student_Records.ToList();
+            ViewBag.stud = stud_list;
+            return View();
+        }
+        [HttpPost]
+        public JsonResult AddAttendence(Attendence rec)
+        {
+            S_AttendenceServices services = new S_AttendenceServices();
+            services.AddAttendence(rec);
+            var stud_list = db.Student_Records.ToList();
+            ViewBag.stud = stud_list;
+            return Json(new { msg = "save" }, JsonRequestBehavior.AllowGet);
+        }
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> ff09218455f10ac03012212ae929f7b96bfecaa1
+=======
+>>>>>>> ff09218455f10ac03012212ae929f7b96bfecaa1
+        
+>>>>>>> 942951c5f2fe3fb548f77941b95ee13156b27037
 
         
     }
