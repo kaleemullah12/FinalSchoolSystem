@@ -31,7 +31,7 @@ namespace SchoolErp.Controllers
             else
             {
                 
-                return RedirectToAction("Index","Home");
+                return RedirectToAction("Login","Home");
             }
         }
         [HttpGet]
@@ -43,7 +43,7 @@ namespace SchoolErp.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Home");
             }
         }
         [HttpPost]
@@ -60,7 +60,7 @@ namespace SchoolErp.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Home");
             }
         }
         [HttpPost]
