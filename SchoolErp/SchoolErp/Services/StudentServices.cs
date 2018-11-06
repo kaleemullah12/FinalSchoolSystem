@@ -24,7 +24,8 @@ namespace SchoolErp.Services
         }
         public object List()
         {
-            var obj = db.Student_Records.ToList();
+            var obj = db.Student_Records.ToList().Select(x=> new {x.Stud_Id, x.Name,x.Father_Name,x.DOB,x.Address,x.Roll_Number});
+            
             return obj;
         }
         public void Remove(int id)

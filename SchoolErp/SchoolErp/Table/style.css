@@ -1,3 +1,4 @@
+
 h1{
   font-size: 30px;
   color: black;
@@ -11,16 +12,25 @@ table{
   table-layout: auto;
 }
 .tbl-header{
-  background-color: dimgrey;
+  background-color: darkblue;
  }
 .tbl-content{
   height:300px;
-  overflow-x:auto;
+  overflow-y:auto;
   margin-top: 0px;
   border: 1px solid rgba(255,255,255,0.3);
 }
+tbody
+{
+    overflow-y:auto;
+    height:120px;
+}
+thead
+{
+    overflow:auto;
+}
 th{
-  padding:15px;
+  padding: 20px 15px;
   text-align: left;
   font-weight: 500;
   font-size: 12px;
@@ -38,14 +48,14 @@ td{
 }
 
 
-/ demo styles /
+/* demo styles */
 
 
 body {
     
    
-    background: -webkit-linear-gradient(left,#FFA500 ,#F0FFFF);
-    background: linear-gradient(to right, #FFA500, #800000);
+    /*background: -webkit-linear-gradient(left, #F0FFFF,#F0FFFF);
+    background: linear-gradient(to right, #F0FFFF, #F0FFFF);*/
     font-family: 'Roboto', sans-serif;
 }
 section{

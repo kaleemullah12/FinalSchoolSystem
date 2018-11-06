@@ -20,13 +20,13 @@ namespace SchoolErp.Controllers
         public ActionResult StudentList()
         {
             var list = services.List();
-            return View(list);
+            return Json(list,JsonRequestBehavior.AllowGet);
         }
         public ActionResult RemoveStudent(int id)
         {
             if (Session["admin"] != null) { 
             services.Remove(id);
-            return RedirectToAction("StudentList");
+            return Json(new { msg="Done"}, JsonRequestBehavior.AllowGet);
             }
             else
             {
