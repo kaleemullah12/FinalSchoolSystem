@@ -1,36 +1,90 @@
 ﻿$(document).ready(function () {
     clearform();
+    GetList();
+    //$("#tblStock").DataTable({
 
-   
+    //});
+    //studentlist();
 });
 
 
 function clearform() {
-     $('#st_name').val('');
-     $('#father_name').val('');
-     $('#Rollno').val('');
-     $('#DOB').val('');
-    $('#addresses').val('');
+    $('#st_name').val('');
+    $('#father_name').val('');
+    $('#Rollno').val('');
+    $('#DOB').val('');
+    $('#address').val('');
     //$("input[name='Gender']:checked").val('');
+<<<<<<< HEAD
     var gender = $("input[name='Gender']:checked").val();
    $('#password').val('');
+=======
+    $("input[name='Gender']").prop('checked', false);
+    $('#password').val('');
+>>>>>>> 7dbb00d4533373a24a61efb6a16315e91efb46ef
 
-  
+
 }
+function GetList() {
+    //debugger;
+    $('#tbllist').html('');
+    $.ajax({
+        type: 'GET',
+        dataType: 'html',
+        //dataType: 'application/json',
+        url: '/Students/StudentList',
+        success: function (result) {
+         
+            var result = JSON.parse(result);
+            for (var i = 0 ; i < result.length ; i++) {
+                AddOption = '<tr id=' + result[i].stud_id + '><td>' + result[i].Name + '</td> <td>' + result[i].Father_Name + '</td> <td>' + result[i].Roll_Number + '</td> <td>' + result[i].DOB + '</td> <td>' + result[i].Address + '</td> <td style="text-align:center">' + '<button id="loading" class="btn btn-sm" style="font-size:15px;color:red;hover:green" onclick=' + ' Delete' + '(' + result[i].Stud_Id + ')><span class="glyphicon glyphicon-trash"></span></button> | <button id="Editid" class="btn btn-sm" style="font-size:20px;color:Aqua;" onclick=' + 'GetId' + '(' + result[i].stud_id + ')>' + " " + '<span class="glyphicon glyphicon-edit"></span> </button></td> </tr>'
+                $('#tbllist').append(AddOption);
+            }
+         
+           
 
-function Addstudent() {
-    debugger;
-    //preventDefault();
-    
+        },
+        error: function (error) {
+        }
+    });
+}
+function Delete(id) {
+   // debugger;
+    $.ajax({
+        url: "/Students/RemoveStudent/" + id,
+        type: "POST",
+
+        contentType: "application/json;charset=utf-8",
+        datatype: "json",
+        success: function (result) {
+            if (result.msg == "Done") {
+                ShowSuccess('Delete SuccessFully');
+                GetList();
+            }
+            load();
+        },
+        Error: function (errormessage) {
+            alert("You cannot Delete.");
+        }
+    });
+
+}
+function Editstudent() {
+    //debugger;
+    var id = $('#id').val();
     var st_name = $('#st_name').val();
     var father = $('#father_name').val();
     var Rollno = $('#Rollno').val();
     var DOB = $('#DOB').val();
-    var addresses = $('#addresses').val();
-    var gender = $("input[name='Gender']:checked").val();
-   var password = $('#password').val();
-    
-    if (st_name=="") {
+    var address = $('#address').val();
+
+    var password = $('#password').val();
+
+    if (id == "") {
+        ShowError("Please Again select Record");
+        return;
+    }
+    if (st_name == "") {
         ShowError("Please Enter Student Name");
         return;
     }
@@ -42,15 +96,86 @@ function Addstudent() {
         ShowError("Please Enter Roll No");
         return;
     }
-    if (DOB == "" ) {
+    if (DOB == "") {
         ShowError("Please Enter DOB");
         return;
     }
-    if (addresses == "") {
+    if (address == "") {
         ShowError("Please Enter Address");
         return;
     }
-   
+
+    if (password == "") {
+        ShowError("Please Enter Student Password");
+        return;
+    }
+
+
+    $.ajax({
+        url: "/Students/UpdateStudent",
+        type: "Post",
+
+        data: {
+            Stud_Id: id,
+            Name: st_name,
+            Roll_Number: Rollno,
+            Father_Name: father,
+            DOB: DOB,
+            Address: address,
+            Password: password,
+
+
+        },
+
+        datatype: "json",
+        success: function (data) {
+            if (data.data == "Edit") {
+                ShowSuccess('Updated SuccessFully');
+                clearform();
+            }
+        },
+        error: function (error) {
+            ShowError('Error in saving');
+        },
+
+    });
+}
+
+
+
+function Addstudent() {
+    //debugger;
+    //preventDefault();
+
+    var st_name = $('#st_name').val();
+    var father = $('#father_name').val();
+    var Rollno = $('#Rollno').val();
+    var DOB = $('#DOB').val();
+    var address = $('#address').val();
+    var gender = $("input[name='Gender']:checked").val();
+    var password = $('#password').val();
+
+    if (st_name == "") {
+        ShowError("Please Enter Student Name");
+        return;
+    }
+    if (father == "") {
+        ShowError("Please Enter Father Name");
+        return;
+    }
+    if (Rollno == "") {
+        ShowError("Please Enter Roll No");
+        return;
+    }
+    if (DOB == "") {
+        ShowError("Please Enter DOB");
+        return;
+    }
+    if (address == "") {
+        ShowError("Please Enter Address");
+        return;
+    }
+
     if (password == "") {
         ShowError("Please Enter Student Password");
         return;
@@ -59,33 +184,34 @@ function Addstudent() {
         ShowError("Please Enter Gender");
         return;
     }
-   
+
     $.ajax({
         url: "/Students/AddStudent",
         type: "Post",
-       
+
         data: {
             Name: st_name,
             Roll_Number: Rollno,
             Father_Name: father,
             DOB: DOB,
-            Address: addresses,
+            Address: address,
             Password: password,
             Gender: gender,
-           
+
         },
         contentType: "application/x-www-form-urlencoded; charset=UTF-8",
         datatype: "json",
         success: function (data) {
-            if(data.msg=="save"){
+            if (data.msg == "save") {
                 ShowSuccess('Save SuccessFully');
                 clearform();
+                GetList();
             }
         },
         error: function (error) {
             ShowError('Error in saving');
         },
-        
+
     });
 }
 
@@ -177,7 +303,7 @@ function Addstudent() {
 //                  { text: "&nbsp;Roll No#", datafield: "Roll_Number", cellsrenderer: _cellrenderer, width: 120 },
 //                  { text: "&nbsp;address", datafield: "Address", cellsrenderer: _cellrenderer, width: 150 },
 //                  { text: "&nbsp;Addmission", datafield: "Admission_Date", cellsrenderer: _cellrenderer, width: 100 },
-                  
+
 //              ]
 //          });
 //    // initialize the menu, popup window and buttons.

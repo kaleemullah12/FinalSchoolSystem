@@ -5,10 +5,9 @@
 }
  
 
-<script src="~/jquery/Student.js"></script>
-<script src="~/asset/Common.js"></script>
 
 
+<link href="~/Table/style.css" rel="stylesheet" />
 
 
 <br />
@@ -22,6 +21,11 @@
                 <form id="basic-form" method="post" novalidate>
                     <div class="row">
                         <div class="col-md-6">
+                            <div class="form-group " hidden>
+                                <label>Student ID</label>
+                                <input type="text" name="Name"  class="form-control" required>
+                            </div>
+
                             <div class="form-group">
                                 <label>Student Name</label>
                                 <input type="text" name="Name" id="st_name" class="form-control" required>
@@ -32,15 +36,8 @@
                             </div>
                             <div class="form-group">
                                 <label>Roll No#</label>
-                                <input type="number" name="Roll_no" id="Rollno" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>DOB</label>
-                                <input type="date" name="DOB" id="DOB" class="form-control" required>
-                            </div>
-                            
-                     
-                            
+                                <input type="text" name="Roll_no" id="Rollno" class="form-control" required>
+                            </div>              
                             <div class="form-group">
                                 <label>Gender</label>
                                 <br />
@@ -57,14 +54,18 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label>DOB</label>
+                                <input type="date" name="DOB" id="DOB" class="form-control" required>
+                            </div>
+                            <div class="form-group">
                                 <label>Password</label>
                                 <input type="password" name="password" id="password" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>Address</label>
-                                <textarea class="form-control" cols="5" rows="6" id="addresses" name="Address" required></textarea>
+                                <textarea class="form-control" cols="5" rows="6" id="address" name="Address" required></textarea>
                             </div>
-                            <br>
+                            
                             
                         </div>
                     </div>
@@ -72,9 +73,31 @@
                     <button type="button"  class="btn  btn-primary btn-block col-md-6" onclick="Addstudent()">Save</button>
 </form>
 
-                <div id="divlist"></div>
+             
             </div>
+            <br />
+
+            <section class="col-md-10 table-bordered table-striped table-hover table-responsive-sm " style="margin-left:50px;">
+                <!--for demo wrap-->
+             <h1>Student Record</h1>
+                <table class="table table-bordered table-striped table-condensed">
+                    <thead class="bg-info">
+                        <tr style="font-size:20px">
+
+                            <th>Name</th>
+                            <th>Father Name</th>
+                            <th>Roll No#</th>
+                            <th>DOB</th>
+                            <th>Address</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbllist"></tbody>
+                </table>
+
+            </section>
            
+          
             
 
         </div>
@@ -82,3 +105,13 @@
     
 </div>
 
+<<<<<<< HEAD
+=======
+<script src="~/Scripts/jquery.min.js"></script>
+
+@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>*@
+<script src="~/jquery/Student.js"></script>
+<script src="~/Table/index.js"></script>
+<script src="~/asset/Common.js"></script>
+
+>>>>>>> 7dbb00d4533373a24a61efb6a16315e91efb46ef

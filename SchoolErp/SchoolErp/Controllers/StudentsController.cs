@@ -17,12 +17,51 @@ namespace SchoolErp.Controllers
         {
             return View();
         }
-
-       
+        public ActionResult StudentList()
+        {
+            var list = services.List();
+            return Json(list,JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult RemoveStudent(int id)
+        {
+            if (Session["admin"] != null) { 
+            services.Remove(id);
+            return Json(new { msg="Done"}, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                
+                return RedirectToAction("Login","Home");
+            }
+        }
+        [HttpGet]
+        public ActionResult GetStudent(int id)
+        {
+            if (Session["admin"] != null) { 
+            var det = db.Student_Records.Find(id);
+            return View(det);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Home");
+            }
+        }
+        [HttpPost]
+        public JsonResult UpdateStudent(Student_Record rec)
+        {
+            services.Update(rec);
+            return Json(new { data="Edit"},JsonRequestBehavior.AllowGet);
+        }
         [HttpGet]
         public ActionResult AddStudent()
         {
+            if (Session["admin"] != null) { 
             return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Home");
+            }
         }
         [HttpPost]
         public JsonResult AddStudent(Student_Record rec)
@@ -97,9 +136,7 @@ namespace SchoolErp.Controllers
             return Json(new { msg = "save" }, JsonRequestBehavior.AllowGet);
         }
 
-
         
-
     }
 
 }
