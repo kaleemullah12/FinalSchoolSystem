@@ -1,0 +1,89 @@
+﻿@model SchoolErp.Models.Student_Record
+@{
+    ViewBag.Title = "UpdateStudent";
+    Layout = "~/Views/Shared/Dashboard.cshtml";
+}
+
+<script src="~/jquery/Student.js"></script>
+<script src="~/asset/Common.js"></script>
+
+
+
+
+<br />
+<div class="row clearfix">
+    <div class="col-md-12" style="">
+        <div class="card">
+            <div class="header">
+                <h5>Update Student</h5>
+            </div>
+            <div class="body">
+                <form id="basic-form" method="post" novalidate>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Student ID</label>
+                                <input type="text" name="Stud_Id" id="id" value="@Model.Stud_Id" readonly class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Student Name</label>
+                                <input type="text" name="Name" id="st_name" value="@Model.Name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Father Name</label>
+                                <input type="text" name="Father_Name" id="father_name" value="@Model.Father_Name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Roll No#</label>
+                                <input type="text" name="Roll_no" id="Rollno" class="form-control" value="@Model.Roll_Number" required>
+                            </div>
+                            @*<div class="form-group">
+                                <label>Gender</label>
+                                <br />
+                                <label class="fancy-radio">
+                                    @*<input type="radio" name="Gender" id="gender" value="@Model.Gender" class="form-control" checked>*@
+                                    @*<span><i></i>Male</span>
+                                </label>
+                                <label class="fancy-radio">
+                                    @*<input type="radio" name="Gender" id="gender" value="@Model.Gender" class="form-control">*@
+                                    @*<span><i></i>Female</span>
+                                </label>
+                                <p id="error-radio"></p>
+                            </div>*@
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>DOB</label>
+                                <input type="date" name="DOB" id="DOB" class="form-control" value="@Model.DOB" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" name="password" id="password" value="@Model.Password" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Address</label>
+                                @*@Html.TextAreaFor(m => m.Address, new { rows = 6, cols = 5, @class="form-control" })*@
+                                <textarea class="form-control" cols="5" rows="6" id="address" name="Address"  required>@Model.Address</textarea>
+                            </div>
+                            <br>
+
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn  btn-primary btn-block col-md-6" onclick="Editstudent()">Update</button>
+                </form>
+
+                <div id="divlist"></div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+</div>
+
+
+
+

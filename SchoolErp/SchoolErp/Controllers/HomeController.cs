@@ -9,28 +9,62 @@ namespace SchoolErp.Controllers
 {
     public class HomeController : Controller
     {
+        InvictusSchoolEntities db = new InvictusSchoolEntities();
         public ActionResult menu()
         {
             return View();
         }
-        public ActionResult Index()
+        public ActionResult Login()
+        {
+            return View();
+        }
+        public ActionResult Login()
         {
             return View();
         }
         [HttpPost]
         public ActionResult Login(Admin data)
         {
-            InvictusSchoolEntities db = new InvictusSchoolEntities();
+            
             var rec = db.Admins.Where(x => x.User_Name == data.User_Name && x.Password == data.Password).SingleOrDefault();
             Session["admin"] = rec;
+<<<<<<< HEAD
+            if (Session["Admin"] != null)
+            {
+                return RedirectToAction("Dashboard");
+=======
+            if (Session["Admin"] != null) { 
             return RedirectToAction("Dashboard");
+>>>>>>> 7dbb00d4533373a24a61efb6a16315e91efb46ef
+            }
+            else
+            {
+                ViewBag.msg = "Your User Name Or Password is Incorrect!!";
+                return View();
+            }
         }
         public ActionResult Dashboard()
         {
-            if (Session["admin"] != null) { 
+<<<<<<< HEAD
+            InvictusSchoolEntities db = new InvictusSchoolEntities();
+            if (Session["admin"] != null)
+            {
+                var list = db.Student_Records.ToList();
+                ViewBag.total = list.Count();
+                return View();
+=======
+            if (Session["admin"] != null) {
+                var list = db.Student_Records.ToList();
+               ViewBag.total = list.Count();
             return View();
+>>>>>>> 7dbb00d4533373a24a61efb6a16315e91efb46ef
             }
-            return Content("This is the Admin Panel");
+            return RedirectToAction("Login");
+        }
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            return RedirectToAction("Login");
         }
     }
 }

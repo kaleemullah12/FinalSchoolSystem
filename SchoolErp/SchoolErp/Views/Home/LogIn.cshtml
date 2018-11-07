@@ -58,7 +58,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <!-- banner-text -->
             <div id="bg"></div>
   
-       @using (Html.BeginForm("Login", "Home", FormMethod.Post)) { 
+       @using (Html.BeginForm("Login", "Home", FormMethod.Post)) {
             @*<form action="" method="post" style="margin-top:25px">*@
                 <h2 style="color:white;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align:center">Admin LogIn</h2>
                 <label class="col-lg-3" style="color:white">User Name</label>
@@ -68,11 +68,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <input type="password" name="Password" id="" placeholder="password" class="pass col-lg-7 ">
 
                 <button type="submit" style="margin-left:25%">login to your account</button>
+               
+                <label style="color:white;font-size:15px;margin-left:110px">@ViewBag.msg</label>
        }
        @*</form>*@
 
         </div>
     </div>
+    
+        
+     
+    
     <!-- //banner-text -->
     <!--banner form-->
    
@@ -107,6 +113,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				}
 			})
 		})
+        
+
     </script>
 
     <!-- //carousel(for feedback) -->

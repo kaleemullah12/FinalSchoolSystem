@@ -156,7 +156,7 @@
     <Key>
       <PropertyRef Name="Stud_Id" />
     </Key>
-    <Property Name="Stud_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Stud_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Father_Name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="DOB" Type="varchar" MaxLength="50" Nullable="false" />
