@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SchoolErp.Models;
+using SchoolErp.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,18 +10,45 @@ namespace SchoolErp.Controllers
 {
     public class SubjectController : Controller
     {
+
+        InvictusSchoolEntities db = new InvictusSchoolEntities();
+
         // GET: Subject
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult Subject()
+       
+        [HttpGet]
+        public ActionResult CST()
         {
+            var sub_list = db.Subjects.ToList();
+            ViewBag.sb = sub_list;
+            var sec_list = db.Sections.ToList();
+            ViewBag.sc = sec_list;
+            var sat_list = db.Staffs.ToList();
+            ViewBag.st = sat_list;
+            var cal_list = db.Classes.ToList();
+            ViewBag.cl = cal_list;
             return View();
         }
-        public ActionResult SubjectDetails()
+        [HttpPost]
+        public JsonResult CST(CST rec)
         {
-            return View();
+            CSTservices services = new CSTservices();
+            services.CST(rec);
+            var sub_list = db.Subjects.ToList();
+            ViewBag.sb = sub_list;
+            var sec_list = db.Sections.ToList();
+            ViewBag.sc = sec_list;
+            var sat_list = db.Staffs.ToList();
+            ViewBag.st = sat_list;
+            var cal_list = db.Classes.ToList();
+            ViewBag.cl = cal_list;
+
+
+
+            return Json(new { msg = "save" }, JsonRequestBehavior.AllowGet);
         }
     }
 }

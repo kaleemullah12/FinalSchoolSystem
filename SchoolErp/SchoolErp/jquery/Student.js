@@ -12,7 +12,7 @@ function clearform() {
      $('#DOB').val('');
     $('#addresses').val('');
     //$("input[name='Gender']:checked").val('');
-    $("input[name='Gender']").prop('checked', false);
+    var gender = $("input[name='Gender']:checked").val();
    $('#password').val('');
 
   
