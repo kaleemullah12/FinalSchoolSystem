@@ -27,10 +27,14 @@ namespace SchoolErp.Controllers
         }
         public ActionResult Dashboard()
         {
-            if (Session["admin"] != null) { 
-            return View();
+            InvictusSchoolEntities db = new InvictusSchoolEntities();
+            if (Session["admin"] != null)
+            {
+                var list = db.Student_Records.ToList();
+                ViewBag.total = list.Count();
+                return View();
             }
-            return Content("This is the Admin Panel");
+            return RedirectToAction("Login");
         }
     }
 }

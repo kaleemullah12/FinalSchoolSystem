@@ -18,28 +18,74 @@ namespace SchoolErp.Controllers
             return View();
         }
 
-       
+
         [HttpGet]
         public ActionResult AddStudent()
         {
-            return View();
+            if (Session["admin"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Home");
+            }
         }
         [HttpPost]
         public JsonResult AddStudent(Student_Record rec)
         {
-           
-            services.AddStudent(rec);
-            return Json(new { msg="save"},JsonRequestBehavior.AllowGet);
+            if (rec.Stud_Id == 0)
+            {
+                services.AddStudent(rec);
+                return Json(new { msg = "save" }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                services.Update(rec);
+                return Json(new { data = "Edit" }, JsonRequestBehavior.AllowGet);
+            }
         }
 
+
+        public ActionResult StudentList()
+        {
+            var list = services.List();
+            return Json(list, JsonRequestBehavior.AllowGet);
+
+        }
+
+        public ActionResult RemoveStudent(int id)
+        {
+            if (Session["admin"] != null)
+            {
+                services.Remove(id);
+                return Json(new { msg = "Done" }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+
+                return RedirectToAction("Login", "Home");
+            }
+        }
+
+        [HttpGet]
+        public ActionResult GetStudent(int id)
+        {
+            if (Session["admin"] != null)
+            {
+                var det = db.Student_Records.Find(id);
+                return Json(det, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Home");
+            }
+        }
         public ActionResult AddParents()
         {
             return View();
         }
-        public ActionResult AddAttendence()
-        {
-            return View();
-        }
+        
         [HttpGet]
         public ActionResult Student_Enrolment()
         {
@@ -69,6 +115,22 @@ namespace SchoolErp.Controllers
 
 
 
+            return Json(new { msg = "save" }, JsonRequestBehavior.AllowGet);
+        }
+        [HttpGet]
+        public ActionResult AddAttendence()
+        {
+            var stud_list = db.Student_Records.ToList();
+            ViewBag.stud = stud_list;
+            return View();
+        }
+        [HttpPost]
+        public JsonResult AddAttendence(Attendence rec)
+        {
+            S_AttendenceServices services = new S_AttendenceServices();
+            services.AddAttendence(rec);
+            var stud_list = db.Student_Records.ToList();
+            ViewBag.stud = stud_list;
             return Json(new { msg = "save" }, JsonRequestBehavior.AllowGet);
         }
 

@@ -19,5 +19,28 @@ namespace SchoolErp.Services
             db.SaveChanges();
 
         }
+        public object List()
+        {
+            var obj = db.Classes.Select(x => new { x.Class_Id,x.Name, x.Fees }).ToList();
+            return obj;
+        }
+
+        public void Remove(int id)
+        {
+            var rec = db.Classes.Find(id);
+            db.Classes.Remove(rec);
+            db.SaveChanges();
+        }
+
+        public void Update(Class rec)
+        {
+
+            var ret = db.Classes.Where(x => x.Class_Id == rec.Class_Id).SingleOrDefault();
+            ret.Class_Id = rec.Class_Id;
+            ret.Name = rec.Name;
+            ret.Fees = rec.Fees;
+            db.SaveChanges();
+
+        }
     }
 }

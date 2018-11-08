@@ -11,7 +11,7 @@ namespace SchoolErp.Controllers
     public class ClassController : Controller
     {
         InvictusSchoolEntities db = new InvictusSchoolEntities();
-
+        ClassServices services = new ClassServices();
         // GET: Class
         public ActionResult Index()
         {
@@ -24,11 +24,50 @@ namespace SchoolErp.Controllers
         [HttpPost]
         public JsonResult AddClass(Class rec)
         {
-
-            ClassServices services = new ClassServices();
-            services.AddClass(rec);
-            return Json(new { msg = "save" }, JsonRequestBehavior.AllowGet);
+            if (rec.Class_Id == 0)
+            {
+                services.AddClass(rec);
+                return Json(new { msg = "save" }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                services.Update(rec);
+                return Json(new { data = "Edit" }, JsonRequestBehavior.AllowGet);
+            }
         }
+        public JsonResult GetList()
+        {
+           var list= services.List();
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult RemoveClass(int id)
+        {
+            if (Session["admin"] != null)
+            {
+                services.Remove(id);
+                return Json(new { msg = "Done" }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+
+                return RedirectToAction("Login", "Home");
+            }
+        }
+        public ActionResult GetClass(int id)
+        {
+            if (Session["admin"] != null)
+            {
+                var det = db.Classes.Find(id);
+                return Json(det, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Home");
+            }
+        }
+
+
         [HttpGet]
         public ActionResult AddSection()
         {
